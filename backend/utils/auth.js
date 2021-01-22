@@ -1,14 +1,25 @@
 const jwt = require('jsonwebtoken')
-const { jwtConfig } = require('../config')
-const { User } = require('../db/models')
+const {
+    jwtConfig
+} = require('../config')
+const {
+    User
+} = require('../db/models')
 
-const { secret, expiresIn } = jwtConfig;
+const {
+    secret,
+    expiresIn
+} = jwtConfig;
 
 // Sends a JWT Cookie
 const setTokenCookie = (res, user) => {
     // Create the token.
-    const token = jwt.sign({ data: user.toSafeObject() },
-        secret, { expiresIn: parseInt(expiresIn) }, // 604,800 seconds = 1 week
+    const token = jwt.sign({
+            data: user.toSafeObject()
+        },
+        secret, {
+            expiresIn: parseInt(expiresIn)
+        }, // 604,800 seconds = 1 week
     );
 
     const isProduction = process.env.NODE_ENV === "production";
@@ -25,15 +36,19 @@ const setTokenCookie = (res, user) => {
 };
 const restoreUser = (req, res, next) => {
     // token parsed from cookies
-    const { token } = req.cookies;
+    const {
+        token
+    } = req.cookies;
 
-    return verify(token, secret, null, async(err, jwtPayload) => {
+    return jwt.verify(token, secret, null, async(err, jwtPayload) => {
         if (err) {
             return next();
         }
 
         try {
-            const { id } = jwtPayload.data;
+            const {
+                id
+            } = jwtPayload.data;
             req.user = await User.scope('currentUser').findByPk(id);
         } catch (e) {
             res.clearCookie('token');
@@ -59,4 +74,8 @@ const requireAuth = [
     },
 ];
 
-module.exports = { setTokenCookie, restoreUser, requireAuth };
+module.exports = {
+    setTokenCookie,
+    restoreUser,
+    requireAuth
+};
