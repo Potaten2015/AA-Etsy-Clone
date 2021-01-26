@@ -30,6 +30,13 @@ module.exports = (sequelize, DataTypes) => {
                 len: [60, 60]
             },
         },
+        bio: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 1000]
+            }
+        }
     }, {
         defaultScope: {
             attributes: {
@@ -46,7 +53,21 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
     User.associate = function(models) {
-        // associations can be defined here
+        User.hasMany(models.Comment, {foreignKey: 'userId'});
+        const columnMapping1 = {
+            through: 'Favorite',
+            otherKey: 'itemId',
+            foreignKey: 'userId'
+        }
+        User.belongsToMany(models.Favorite, columnMapping1)
+        const columnMapping2 = {
+            through: 'Follow',
+            otherKey: 'followingUserId',
+            foreignKey: 'followedUserId'
+        }
+        User.belongsToMany(models.Follow, columnMapping2)
+        User.hasMany(models.Orders, {foreignKey: 'userId'})
+
     };
     User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
         const { id, username, email } = this; // context will be the User instance
