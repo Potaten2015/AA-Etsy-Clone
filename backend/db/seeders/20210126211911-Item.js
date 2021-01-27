@@ -141,7 +141,7 @@ module.exports = {
     shortDescription: "What's better than 7 legs??? 8!",
     longDescription: 'This little guy is a land octpus that sits in your yard and looks pretty. ',
     price: 1.00,
-    sellerId: 0,
+    sellerId: 1,
     thumbnail: '/photos/100_3076.JPG',
     photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
     createdAt: new Date(),
