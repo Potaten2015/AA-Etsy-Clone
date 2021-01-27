@@ -9,6 +9,8 @@ module.exports = {
       rating: 5,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 1,
@@ -16,6 +18,8 @@ module.exports = {
       rating: 5,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 2,
@@ -23,6 +27,8 @@ module.exports = {
       rating: 3,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 3,
@@ -30,6 +36,8 @@ module.exports = {
       rating: 1,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 1,
@@ -37,6 +45,8 @@ module.exports = {
       rating: 3,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 6,
@@ -44,6 +54,8 @@ module.exports = {
       rating: 2,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 6,
@@ -51,6 +63,8 @@ module.exports = {
       rating: 4,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 6,
@@ -58,6 +72,8 @@ module.exports = {
       rating: 4,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 5,
@@ -65,6 +81,8 @@ module.exports = {
       rating: 1,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 4,
@@ -72,6 +90,8 @@ module.exports = {
       rating: 2,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 5,
@@ -79,6 +99,8 @@ module.exports = {
       rating: 3,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 6,
@@ -86,6 +108,8 @@ module.exports = {
       rating: 2,
       title: 'Cool!',
       content: 'Quite the product!',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
 ], {});
   },

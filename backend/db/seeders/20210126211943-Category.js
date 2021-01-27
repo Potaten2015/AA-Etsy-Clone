@@ -15,36 +15,58 @@ module.exports = {
    return queryInterface.bulkInsert('Categories', [
     {
       name: 'Decorations',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Fruit',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Animals',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Lawn',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Garden',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Keys',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Tools',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Lights',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Shoes',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Home',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       name: 'Pictures',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
 ], {});
   },

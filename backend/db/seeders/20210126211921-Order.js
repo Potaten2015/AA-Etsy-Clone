@@ -6,30 +6,48 @@ module.exports = {
    return queryInterface.bulkInsert('Orders', [
     {
       userId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 2,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 3,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 4,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 5,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       userId: 6,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
   ], {});
   },

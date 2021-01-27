@@ -11,7 +11,9 @@ module.exports = {
     price: 30.00,
     sellerId: 1,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Dragonfruit',
@@ -20,7 +22,9 @@ module.exports = {
     price: 7.00,
     sellerId: 2,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Ducks',
@@ -29,7 +33,9 @@ module.exports = {
     price: 100.00,
     sellerId: 3,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Fake Plant Things',
@@ -38,7 +44,9 @@ module.exports = {
     price: 65.99,
     sellerId: 4,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Picure Frames',
@@ -47,7 +55,9 @@ module.exports = {
     price: 500.00,
     sellerId: 6,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Garden Stuff',
@@ -56,7 +66,9 @@ module.exports = {
     price: 12.00,
     sellerId: 1,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Gnome',
@@ -65,7 +77,9 @@ module.exports = {
     price: 34.00,
     sellerId: 5,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Grapefruit',
@@ -74,7 +88,9 @@ module.exports = {
     price: 643.00,
     sellerId: 6,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Jackfruit (not to be confused with Jillfruit)',
@@ -83,7 +99,9 @@ module.exports = {
     price: 5634.00,
     sellerId: 4,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Keychain',
@@ -92,7 +110,9 @@ module.exports = {
     price: 6.04,
     sellerId: 3,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'LED Light Strip',
@@ -101,7 +121,9 @@ module.exports = {
     price: 345.00,
     sellerId: 5,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'COOL NEON LIGHT',
@@ -110,7 +132,9 @@ module.exports = {
     price: 3454.00,
     sellerId: 2,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Octopus',
@@ -119,7 +143,9 @@ module.exports = {
     price: 1.00,
     sellerId: 0,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Handmade Rug',
@@ -128,7 +154,9 @@ module.exports = {
     price: 546.34,
     sellerId: 6,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Shoe Rack for Sick Kicks',
@@ -137,7 +165,9 @@ module.exports = {
     price: 90.67,
     sellerId: 4,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     name: 'Ultra Mini Shovel!',
@@ -146,7 +176,9 @@ module.exports = {
     price: 87.87,
     sellerId: 1,
     thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG'],
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 ], {});
   },
