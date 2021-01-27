@@ -37,7 +37,7 @@ module.exports = {
       },
       photos: {
         allowNull: false,
-        type: Sequelize.ENUM
+        type: Sequelize.ARRAY(Sequelize.STRING)
       },
       createdAt: {
         allowNull: false,

@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.DOUBLE,
     sellerId: DataTypes.INTEGER,
     thumbnail: DataTypes.STRING,
-    photos: DataTypes.ENUM
+    photos: DataTypes.ARRAY(DataTypes.STRING)
   }, {});
   Item.associate = function(models) {
     Item.hasOne(model.User, {foreignKey: 'sellerId'});
