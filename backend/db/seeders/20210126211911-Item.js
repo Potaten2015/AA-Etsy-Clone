@@ -45,7 +45,7 @@ module.exports = {
     shortDescription: 'Gorgeous multicolor frames.',
     longDescription: 'I wove these by hand over three years. Each one took me just under 300 hours and every second was an absolute joy. ',
     price: 500.00,
-    sellerId: 0,
+    sellerId: 6,
     thumbnail: '/photos/100_3076.JPG',
     photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
   },
@@ -70,7 +70,7 @@ module.exports = {
   {
     name: 'Grapefruit',
     shortDescription: 'Sour. Not at all like grapes.',
-    longDescription: 'They are so large. They have consumed the entirety of my counter space. .',
+    longDescription: 'They are so large. They have consumed the entirety of my counter space.',
     price: 643.00,
     sellerId: 6,
     thumbnail: '/photos/100_3076.JPG',
@@ -78,8 +78,8 @@ module.exports = {
   },
   {
     name: 'Jackfruit (not to be confused with Jillfruit)',
-    shortDescription: 'Some beautiful jangly chimes for the wind to play with.',
-    longDescription: 'Windchimes made by my mom, who has never made windchimes before but somehow managed to create these beautiful things. When the wind rises they sing like clashing pots. What a wonderful sound.',
+    shortDescription: 'A larfe fruit. Named after my uncle Jack',
+    longDescription: 'It comes in a box, which is pretty much the main feature here. If you have a cat the cat can sit. If you have things to carry the box can assist. Trust me, come for the fruit, stay for the box.',
     price: 5634.00,
     sellerId: 4,
     thumbnail: '/photos/100_3076.JPG',
@@ -87,8 +87,8 @@ module.exports = {
   },
   {
     name: 'Keychain',
-    shortDescription: 'Some beautiful jangly chimes for the wind to play with.',
-    longDescription: 'Windchimes made by my mom, who has never made windchimes before but somehow managed to create these beautiful things. When the wind rises they sing like clashing pots. What a wonderful sound.',
+    shortDescription: 'An off the chain keychain.',
+    longDescription: 'You can hold keys on keys. As many keys as you can think of. Think of 59 keys. You bet this chain can hold them',
     price: 6.04,
     sellerId: 3,
     thumbnail: '/photos/100_3076.JPG',
@@ -96,8 +96,8 @@ module.exports = {
   },
   {
     name: 'LED Light Strip',
-    shortDescription: 'Some beautiful jangly chimes for the wind to play with.',
-    longDescription: 'Windchimes made by my mom, who has never made windchimes before but somehow managed to create these beautiful things. When the wind rises they sing like clashing pots. What a wonderful sound.',
+    shortDescription: 'Bright colorful lights.',
+    longDescription: 'Do you like to party? Well these are the lights for YOU. They have RED, GREEN, BLUE, and EVERY COLOR BETWEEN.',
     price: 345.00,
     sellerId: 5,
     thumbnail: '/photos/100_3076.JPG',
@@ -105,7 +105,7 @@ module.exports = {
   },
   {
     name: 'COOL NEON LIGHT',
-    shortDescription: 'Some beautiful jangly chimes for the wind to play with.',
+    shortDescription: 'This light is an absolute vibe.',
     longDescription: 'Windchimes made by my mom, who has never made windchimes before but somehow managed to create these beautiful things. When the wind rises they sing like clashing pots. What a wonderful sound.',
     price: 3454.00,
     sellerId: 2,
@@ -114,26 +114,26 @@ module.exports = {
   },
   {
     name: 'Octopus',
-    shortDescription: 'Some beautiful jangly chimes for the wind to play with.',
-    longDescription: 'Windchimes made by my mom, who has never made windchimes before but somehow managed to create these beautiful things. When the wind rises they sing like clashing pots. What a wonderful sound.',
+    shortDescription: "What's better than 7 legs??? 8!",
+    longDescription: 'This little guy is a land octpus that sits in your yard and looks pretty. ',
     price: 1.00,
-    sellerId: 3,
-    thumbnail: '/photos/100_3076.JPG',
-    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
-  },
-  {
-    name: 'Handmade Rug',
-    shortDescription: 'Some beautiful jangly chimes for the wind to play with.',
-    longDescription: 'Windchimes made by my mom, who has never made windchimes before but somehow managed to create these beautiful things. When the wind rises they sing like clashing pots. What a wonderful sound.',
-    price: 546.34,
     sellerId: 0,
     thumbnail: '/photos/100_3076.JPG',
     photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
   },
   {
+    name: 'Handmade Rug',
+    shortDescription: 'For looking at, not stepping on.',
+    longDescription: 'A wonderful authentic rug.',
+    price: 546.34,
+    sellerId: 6,
+    thumbnail: '/photos/100_3076.JPG',
+    photos: ['/photos/100_3076.JPG','/photos/100_3076.JPG','/photos/100_3076.JPG', '/photos/100_3076.JPG']
+  },
+  {
     name: 'Shoe Rack for Sick Kicks',
-    shortDescription: 'Some beautiful jangly chimes for the wind to play with.',
-    longDescription: 'Windchimes made by my mom, who has never made windchimes before but somehow managed to create these beautiful things. When the wind rises they sing like clashing pots. What a wonderful sound.',
+    shortDescription: 'Let your shoes rest on this masterpiece.',
+    longDescription: 'I have 3000 pairs of shoes. I literally live in a house of shoes because I spent all my money on shoes. This shoe holder is definitely the pinnacle of shoe reacks. Your kicks will love you. They will carress your feet in ways that they never have before.' ,
     price: 90.67,
     sellerId: 4,
     thumbnail: '/photos/100_3076.JPG',
@@ -141,8 +141,8 @@ module.exports = {
   },
   {
     name: 'Ultra Mini Shovel!',
-    shortDescription: 'Some beautiful jangly chimes for the wind to play with.',
-    longDescription: 'Windchimes made by my mom, who has never made windchimes before but somehow managed to create these beautiful things. When the wind rises they sing like clashing pots. What a wonderful sound.',
+    shortDescription: 'Have you ever seen a shovel so small.',
+    longDescription: 'Do you like to dig holes? Big holes, small holes, medium holes? Holes for plants or seeds or just...holes? Well this little guy can help you out. He digs holes. So many holes. My whole yard is covered in them, and now your can be too! With this tiny tiny shovel.',
     price: 87.87,
     sellerId: 1,
     thumbnail: '/photos/100_3076.JPG',
