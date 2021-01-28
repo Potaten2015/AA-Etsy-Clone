@@ -3,12 +3,11 @@ const asyncHandler = require('express-async-handler');
 const router = express.Router();
 const {Op} = require('sequelize');
 
-const { Item, Favorite } = require('../../db/models');
+const db = require('../../db/models/');
 
 router.post('/populate', asyncHandler(async (req, res) => {
 
-    const {userId} = req.body;
-    console.log(userId)
+    const userId = req.body.id;
 
     // const recentlyVisited = await Item.findAll({
     //     where: {
@@ -20,27 +19,30 @@ router.post('/populate', asyncHandler(async (req, res) => {
 
     const recentlyVisited = [];
 
-    let favorites = await Favorite.findAll({
+    const favorites = await db.Favorite.findAll({
         where: {
             userId: userId
         },
-        include: {
-            model: 'Item'
+    }).then((returned) => returned.map(fav => fav.itemId));
+
+    const favoriteItems = await db.Item.findAll({
+        where: {
+            id: {
+                [Op.in]: favorites
+            }
         }
-    });
+    })
 
-    const favoriteItems = favorites.map((favorite) => favorite.Item);
-
-    const newlyAdded = await Item.findAll({
+    const newlyAddedItems = await db.Item.findAll({
         order: [
             ['createdAt', 'DESC']
         ],
         limit: 5
     })
 
-    const alreadyLoaded = [...favoriteItems.map(item => item.id), ...newlyAdded.map(item => item.id)];
+    const alreadyLoaded = [...favoriteItems.map(item => item.id), ...newlyAddedItems.map(item => item.id)];
 
-    const browseItems = await Item.findAll({
+    const browseItems = await db.Item.findAll({
         where: {
             id: {
                 [Op.notIn]: alreadyLoaded
