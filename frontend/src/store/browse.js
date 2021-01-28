@@ -18,13 +18,14 @@ export const populateBrowse = (user) => async (dispatch) => {
     dispatch(populate(response.data))
 }
 
-const initialState = null;
+const initialState = {favoriteItems: [], newlyAddedItems: [], browseItems:[], recentlyVisitedItems: []};
 
 const browseReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case POPULATE:
             newState = action.payload;
+            console.log(newState)
             if(!newState){
                 return null
             } else {
