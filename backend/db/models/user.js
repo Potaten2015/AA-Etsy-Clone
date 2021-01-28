@@ -60,13 +60,22 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'userId'
         }
         User.belongsToMany(models.Favorite, columnMapping1)
+        User.hasMany(models.Order, {foreignKey: 'userId'})
         const columnMapping2 = {
             through: 'Follow',
             otherKey: 'followingUserId',
-            foreignKey: 'followedUserId'
+            foreignKey: 'followedUserId',
+            as: 'followedUser'
         }
-        User.belongsToMany(models.Follow, columnMapping2)
-        User.hasMany(models.Orders, {foreignKey: 'userId'})
+        User.belongsToMany(models.User, columnMapping2)
+        const columnMapping3 = {
+            through: 'Follow',
+            otherKey: 'followedUserId',
+            foreignKey: 'followingUserId',
+            as: 'followingUser'
+        }
+        User.belongsToMany(models.User, columnMapping3)
+        User.hasMany(models.Item, {foreignKey: 'sellerId'})
 
     };
     User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function

@@ -10,19 +10,25 @@ module.exports = (sequelize, DataTypes) => {
     photos: DataTypes.ARRAY(DataTypes.STRING)
   }, {});
   Item.associate = function(models) {
-    Item.hasOne(model.User, {foreignKey: 'sellerId'});
+    Item.belongsTo(models.User, {foreignKey: 'sellerId'});
     const columnMapping1 = {
       through: 'CategoryItem',
       otherKey: 'categoryId',
       foreignKey: 'itemId'
-    }
-    Item.belongsToMany(model.Category, columnMapping1);
+    };
+    Item.belongsToMany(models.Category, columnMapping1);
     const columnMapping2 = {
       through: 'OrderItem',
       otherKey: 'orderId',
       foreignKey: 'itemId'
-    }
+    };
     Item.belongsToMany(models.Order, columnMapping2);
+    const columnMapping3 = {
+      through: 'Favorite',
+      otherKey: 'userId',
+      foreignKey: 'itemId'
+    };
+    Item.belongsToMany(models.User, columnMapping3);
     Item.hasMany(models.Comment, { foreignKey: 'itemId' })
   };
   return Item;

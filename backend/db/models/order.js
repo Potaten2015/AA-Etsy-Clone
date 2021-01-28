@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: 'itemId',
       foreignKey: 'orderId'
     }
-    Item.belongsToMany(models.Order, columnMapping1)
+    Order.belongsToMany(models.Item, columnMapping1)
   };
   return Order;
 };
