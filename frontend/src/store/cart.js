@@ -6,6 +6,7 @@ const PLUS = 'cart/plus'
 const MINUS = 'cart/minus'
 const BUY = 'cart/buy'
 const EMPTY = 'cart/empty'
+const LOAD = 'cart/load'
 
 const add = (item) => {
     return {
@@ -47,6 +48,13 @@ const empty = () => {
     }
 }
 
+const load = (cart) => {
+    return {
+        type: LOAD,
+        payload: cart
+    }
+}
+
 export const addItem = (item) => async (dispatch) => {
     dispatch(add(item));
 }
@@ -71,13 +79,18 @@ export const emptyItem = () => async (dispatch) => {
     dispatch(empty());
 }
 
+export const loadCart = (cart) => async (dispatch) => {
+    dispatch(load(cart));
+}
 
 const initialState = {};
+
 
 const cartReducer = (state = initialState, action) => {
     let newState;
     let item;
     let itemId;
+
     switch (action.type) {
         case ADD:
             newState = state;
@@ -94,6 +107,7 @@ const cartReducer = (state = initialState, action) => {
         case REMOVE:
             newState = state;
             itemId = action.payload;
+            console.log('DELETING ITEM WITH ID:     ', itemId)
             delete newState[itemId];
             return newState;
         case PLUS:
@@ -113,6 +127,9 @@ const cartReducer = (state = initialState, action) => {
             newState = {};
             return newState;
         case EMPTY:
+            newState = {};
+            return newState;
+        case LOAD:
             newState = {};
             return newState;
         default:

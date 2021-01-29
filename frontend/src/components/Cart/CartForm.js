@@ -1,20 +1,23 @@
-const { useState, useEffect } = require("react");
-const { useSelector } = require("react-redux");
-const { default: CartItem } = require("./CartItem");
+import { useState, useEffect } from "react";
+import CartItem from "./CartItem";
+import {buyItem,  emptyItem} from '../../store/cart.js'
 
-const CartForm = () => {
+const CartForm = ({cartItems, setCartToggle}) => {
 
     const [cartLoaded, setCartLoaded] = useState(false);
-    const cartItems = useSelector(state => Object.values(state.cart));
+    const [formLoad, setFormLoad] = useState(false);
 
     useEffect(() => {
         if(cartItems) setCartLoaded(true);
-        console.log("CART ITEMS", cartItems)
     }, [cartItems])
+
+    console.log("THE CART ITEMS:    ", cartItems)
 
     return cartLoaded && (
         <form>
-            {cartItems.map(item => <CartItem key={item.id} cartEntry={item} />)}
+            {cartItems.map(item => <CartItem key={item.id} cartEntry={item} formToggle={setFormLoad} cartToggler={setCartToggle} />)}
+            <button>Buy</button>
+            <button>Empty</button>
         </form>
     )
 }

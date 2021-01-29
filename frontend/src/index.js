@@ -7,10 +7,9 @@ import App from "./App";
 import { ModalProvider } from "./context/Modal";
 import { restoreCSRF, fetch } from "./store/csrf";
 import * as sessionActions from "./store/session";
-import configureStore from "./store"
-import {PersistGate} from 'redux-persist/es/integration/react'
+import store from "./store"
 
-const {store, persistor} = configureStore();
+
 
 if (process.env.NODE_ENV !== "production") {
   restoreCSRF();
@@ -23,13 +22,11 @@ if (process.env.NODE_ENV !== "production") {
 function Root() {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
         <ModalProvider>
           <BrowserRouter>
             <App />
           </BrowserRouter>
         </ModalProvider>
-      </PersistGate>
     </Provider>
   );
 }

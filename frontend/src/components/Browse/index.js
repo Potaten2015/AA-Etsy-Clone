@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {useHistory} from 'react-router-dom';
 import {populateBrowse} from '../../store/browse';
 import ItemCard from '../ItemCard';
 
@@ -9,7 +8,6 @@ function Browse({isLoaded}) {
 
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user)
-    const history = useHistory();
     const [browseLoaded, setBrowseLoaded] = useState(false);
     const browseData = useSelector(state => state.browse)
 
