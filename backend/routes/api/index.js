@@ -3,6 +3,7 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const browseRouter = require('./browse.js');
+const cartRouter = require('./cart.js');
 
 // GET /api/set-token-cookie
 const asyncHandler = require('express-async-handler');
@@ -14,6 +15,8 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
 router.use('/browse', browseRouter);
+
+router.use('/cart', cartRouter);
 
 router.get('/set-token-cookie', asyncHandler(async(req, res) => {
     const user = await User.findOne({

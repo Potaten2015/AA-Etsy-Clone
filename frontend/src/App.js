@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Browse from "./components/Browse"
 import ProductPage from "./components/ProductPage";
 import UserProfile from "./components/UserProfile";
+import Cart from "./components/Cart";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,10 @@ function App() {
 
           <Route path="/profile/:id">
             <UserProfile isLoaded={isLoaded}/>
+          </Route>
+
+          <Route path="/cart">
+            <Cart isLoaded={isLoaded}/>
           </Route>
 
         </Switch>

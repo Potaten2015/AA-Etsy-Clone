@@ -1,4 +1,3 @@
-import { delete } from '../../../backend/routes/api';
 import { fetch } from './csrf';
 
 const ADD = 'cart/add'
@@ -18,7 +17,7 @@ const add = (item) => {
 const remove = (itemId) => {
     return {
         type: REMOVE,
-        payload: itemID
+        payload: itemId
     }
 }
 
@@ -48,25 +47,30 @@ const empty = () => {
     }
 }
 
-export const populateBrowse = (user) => async (dispatch) => {
-    const response = await fetch('/api/browse/populate', {
-        method: 'post',
-        body: JSON.stringify(user),
-    })
-    dispatch(populate(response.data))
+export const addItem = (item) => async (dispatch) => {
+    dispatch(add(item));
 }
 
-export const updateCurrentItem = (item) => async (dispatch) => {
-    dispatch(current(item))
+export const removeItem = (itemId) => async (dispatch) => {
+    dispatch(remove(itemId));
 }
 
-export const updateCurrentPhoto = (url) => async (dispatch) => {
-    dispatch(photo(url))
+export const plusItem = (itemId) => async (dispatch) => {
+    dispatch(plus(itemId));
 }
 
-export const updateCurrentProfile = (info) => async (dispatch) => {
-    dispatch(profile(info))
+export const minusItem = (itemId) => async (dispatch) => {
+    dispatch(minus(itemId));
 }
+
+export const buyItem = () => async (dispatch) => {
+    dispatch(buy());
+}
+
+export const emptyItem = () => async (dispatch) => {
+    dispatch(empty());
+}
+
 
 const initialState = {};
 
@@ -82,26 +86,32 @@ const cartReducer = (state = initialState, action) => {
             if(newState[itemId]) {
                 newState[itemId].quantity ++;
             } else {
+                newState[itemId] = {};
                 newState[itemId].cartItem = item;
                 newState[itemId].quantity = 1
             };
             return newState;
         case REMOVE:
+            newState = state;
             itemId = action.payload;
             delete newState[itemId];
+            return newState;
         case PLUS:
             newState = state;
+            itemId = action.payload;
             newState[itemId].quantity += 1;
             return newState;
         case MINUS:
             newState = state;
+            itemId = action.payload;
             newState[itemId].quantity -= 1;
-            if(newState.itemId.quantity === 0){
-                delete newState.itemId;
+            if(newState[itemId].quantity === 0){
+                delete newState[itemId];
             }
             return newState;
         case BUY:
             newState = {};
+            return newState;
         case EMPTY:
             newState = {};
             return newState;
@@ -110,4 +120,4 @@ const cartReducer = (state = initialState, action) => {
     }
 }
 
-export default browseReducer;
+export default cartReducer;

@@ -1,11 +1,11 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import storage from 'redux-persist/lib/storage';
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import browseReducer from "./browse";
 import {persistStore, persistCombineReducers} from 'redux-persist';
 import localForage from "localforage";
 
 import sessionReducer from './session';
+import cartReducer from "./cart";
 
 const persistConfig = {
   key: 'root',
@@ -14,7 +14,8 @@ const persistConfig = {
 
 const rootReducer = {
   session: sessionReducer,
-  browse: browseReducer
+  browse: browseReducer,
+  cart: cartReducer
 };
 
 const finalReducer = persistCombineReducers(persistConfig, rootReducer);
@@ -29,10 +30,6 @@ if (process.env.NODE_ENV === "production") {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   enhancer = composeEnhancers(applyMiddleware(thunk, logger));
 }
-
-const configureStore = (preloadedState) => {
-  return createStore(rootReducer, preloadedState, enhancer);
-};
 
 export default () => {
   const store = createStore(finalReducer, enhancer);
