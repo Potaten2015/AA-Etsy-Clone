@@ -1,13 +1,23 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import storage from 'redux-persist/lib/storage';
 import thunk from "redux-thunk";
 import browseReducer from "./browse";
+import {persistStore, persistCombineReducers} from 'redux-persist';
+import localForage from "localforage";
 
 import sessionReducer from './session';
 
-const rootReducer = combineReducers({
+const persistConfig = {
+  key: 'root',
+  storage: localForage,
+}
+
+const rootReducer = {
   session: sessionReducer,
   browse: browseReducer
-});
+};
+
+const finalReducer = persistCombineReducers(persistConfig, rootReducer);
 
 let enhancer;
 
@@ -24,4 +34,8 @@ const configureStore = (preloadedState) => {
   return createStore(rootReducer, preloadedState, enhancer);
 };
 
-export default configureStore;
+export default () => {
+  const store = createStore(finalReducer, enhancer);
+  const persistor = persistStore(store);
+  return {persistor, store}
+};

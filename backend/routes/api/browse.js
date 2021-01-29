@@ -30,6 +30,12 @@ router.post('/populate', asyncHandler(async (req, res) => {
             id: {
                 [Op.in]: favorites
             }
+        },
+        include: {
+            model: db.Comment,
+            include: [{
+                model: db.User
+            }]
         }
     })
 
@@ -37,18 +43,27 @@ router.post('/populate', asyncHandler(async (req, res) => {
         order: [
             ['createdAt', 'DESC']
         ],
+        include: {
+            model: db.Comment,
+            include: [{
+                model: db.User
+            }]
+        },
         limit: 5
     })
 
     const alreadyLoaded = [...favoriteItems.map(item => item.id), ...newlyAddedItems.map(item => item.id)];
 
     const browseItems = await db.Item.findAll({
-        where: {
-            id: {
-                [Op.notIn]: alreadyLoaded
-            }
+        include: {
+            model: db.Comment,
+            include: [{
+                model: db.User
+            }]
         }
-    })
+    });
+
+
 
     return res.json({favoriteItems, newlyAddedItems, browseItems, recentlyVisited})
 

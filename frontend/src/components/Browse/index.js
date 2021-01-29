@@ -18,7 +18,6 @@ function Browse({isLoaded}) {
       }, [dispatch, user]);
 
     const {favoriteItems, browseItems, newlyAddedItems} = browseData;
-    console.log(favoriteItems)
 
     return  isLoaded && browseLoaded && (
         <>

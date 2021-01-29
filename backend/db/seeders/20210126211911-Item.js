@@ -40,7 +40,7 @@ module.exports = {
   {
     name: 'Fake Plant Things',
     shortDescription: 'Spiky fake plants. Almost kind of pretty.',
-    longDescription: 'I made these to ward of predators but I think they look decent as decorations as well.',
+    longDescription: 'I made these to ward off predators but I think they look decent as decorations as well.',
     price: 65.99,
     sellerId: 4,
     thumbnail: 'https://aasourcebucket.s3.us-east-2.amazonaws.com/FakePlants/plant_1_1.jpg',
@@ -139,7 +139,7 @@ module.exports = {
   {
     name: 'COOL NEON LIGHT',
     shortDescription: 'This light is an absolute vibe.',
-    longDescription: 'Windchimes made by my mom, who has never made windchimes before but somehow managed to create these beautiful things. When the wind rises they sing like clashing pots. What a wonderful sound.',
+    longDescription: "Do you think you're cool? Not until you have this masterpiece hanging above your pool table next to your big screen tv so you can brag to the boys over the sound of Nickleback.",
     price: 3454.00,
     sellerId: 2,
     thumbnail: 'https://aasourcebucket.s3.us-east-2.amazonaws.com/NeonLight/neon_1.jpg',
