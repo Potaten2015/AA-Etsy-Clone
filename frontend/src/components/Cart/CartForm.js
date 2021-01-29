@@ -9,12 +9,12 @@ const CartForm = () => {
 
     useEffect(() => {
         if(cartItems) setCartLoaded(true);
-        console.log(cartItems)
+        console.log("CART ITEMS", cartItems)
     }, [cartItems])
 
     return cartLoaded && (
         <form>
-            {cartItems.map(item => <CartItem cartEntry={item} />)}
+            {cartItems.map(item => <CartItem key={item.id} cartEntry={item} />)}
         </form>
     )
 }
