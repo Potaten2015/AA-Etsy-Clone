@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Browse from "./components/Browse"
 import ProductPage from "./components/ProductPage";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,10 @@ function App() {
 
           <Route path="/item/:id">
             <ProductPage isLoaded={isLoaded}/>
+          </Route>
+
+          <Route path="/profile/:id">
+            <UserProfile isLoaded={isLoaded}/>
           </Route>
 
         </Switch>

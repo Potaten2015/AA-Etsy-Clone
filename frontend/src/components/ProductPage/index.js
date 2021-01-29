@@ -33,7 +33,7 @@ const ProductPage = ({url}) => {
             <ProductPageImage url={photoUrl} />
             <p>{item.longDescription}</p>
             {item.photos.map((image, index) => <ProductPageSmall key={image} url={image} index={index} />)}
-            {item.Comments && item.Comments.map(com => <Comment key={com.id} title={com.title} content={com.content} author={com.User} />)}
+            {item.Comments && item.Comments.map(com => <Comment key={com.id} title={com.title} content={com.content} author={com.User} rating={com.rating}/>)}
         </>
     )
 }

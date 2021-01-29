@@ -3,6 +3,7 @@ import { fetch } from './csrf';
 const POPULATE = 'browse/populate'
 const CURRENT = 'browse/current'
 const PHOTO = 'browse/current/photo'
+const PROFILE = 'browse/profile'
 
 
 const populate = (itemData) => {
@@ -26,6 +27,13 @@ const photo = (url) => {
     }
 }
 
+const profile = (info) => {
+    return {
+        type: PROFILE,
+        payload: info
+    }
+}
+
 export const populateBrowse = (user) => async (dispatch) => {
     const response = await fetch('/api/browse/populate', {
         method: 'post',
@@ -42,7 +50,11 @@ export const updateCurrentPhoto = (url) => async (dispatch) => {
     dispatch(photo(url))
 }
 
-const initialState = {favoriteItems: [], newlyAddedItems: [], browseItems:[], recentlyVisitedItems: [], currentItem: null, currentPhoto: null};
+export const updateCurrentProfile = (info) => async (dispatch) => {
+    dispatch(profile(info))
+}
+
+const initialState = {favoriteItems: [], newlyAddedItems: [], browseItems:[], recentlyVisitedItems: [], currentItem: null, currentPhoto: null, currentProfile: null};
 
 const browseReducer = (state = initialState, action) => {
     let newState;
@@ -61,6 +73,10 @@ const browseReducer = (state = initialState, action) => {
         case PHOTO:
             newState = state;
             newState.currentPhoto = action.payload;
+            return newState;
+        case PROFILE:
+            newState = state;
+            newState.currentProfile = action.payload;
             return newState;
         default:
             return state;
