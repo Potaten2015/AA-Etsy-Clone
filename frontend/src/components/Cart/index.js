@@ -11,6 +11,12 @@ const Cart = () => {
     const storage = window.localStorage;
     const [cartLoaded, setCartLoaded] = useState(false);
     const cartData = Object.values(useSelector(state => state.cart));
+    const cartTotal = cartData.reduce((accum, el) => {
+        console.log(el)
+        return accum + (el.cartItem.price * el.quantity);
+    },0)
+
+    console.log(cartTotal)
 
     useEffect(() => {
         if(cartData.length > 0){
@@ -23,6 +29,7 @@ const Cart = () => {
     return cartLoaded && (
         <>
             <CartForm cartItems={cartData} setCartToggle={setCartToggle}/>
+            <p>{`Cart Total: $${(cartTotal).toFixed(2)}`}</p>
         </>
     )
 }

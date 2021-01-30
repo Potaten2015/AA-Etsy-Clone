@@ -69,4 +69,11 @@ router.post('/populate', asyncHandler(async (req, res) => {
 
 }))
 
+router.post('/buy', asyncHandler( async (req, res) => {
+
+    const myModel = await db.Order.build({})
+    console.log(myModel)
+
+}))
+
 module.exports = router;

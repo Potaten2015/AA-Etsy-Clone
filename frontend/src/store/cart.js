@@ -6,7 +6,6 @@ const PLUS = 'cart/plus'
 const MINUS = 'cart/minus'
 const BUY = 'cart/buy'
 const EMPTY = 'cart/empty'
-const LOAD = 'cart/load'
 
 const add = (item) => {
     return {
@@ -36,22 +35,16 @@ const minus = (itemId) => {
     }
 }
 
-const buy = () => {
+const buy = (items) => {
     return {
         type: BUY,
+        payload: items
     }
 }
 
 const empty = () => {
     return {
         type: EMPTY,
-    }
-}
-
-const load = (cart) => {
-    return {
-        type: LOAD,
-        payload: cart
     }
 }
 
@@ -72,15 +65,14 @@ export const minusItem = (itemId) => async (dispatch) => {
 }
 
 export const buyItem = () => async (dispatch) => {
+    fetch('/api/cart/buy', {
+        method: 'post'
+    })
     dispatch(buy());
 }
 
 export const emptyItem = () => async (dispatch) => {
     dispatch(empty());
-}
-
-export const loadCart = (cart) => async (dispatch) => {
-    dispatch(load(cart));
 }
 
 const initialState = {};
@@ -126,9 +118,6 @@ const cartReducer = (state = initialState, action) => {
             newState = {};
             return newState;
         case EMPTY:
-            newState = {};
-            return newState;
-        case LOAD:
             newState = {};
             return newState;
         default:
