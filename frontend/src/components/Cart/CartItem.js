@@ -16,9 +16,7 @@ const CartItem = ({cartEntry, formToggle, cartToggler}) => {
 
     useEffect(() => {
     }, [stateSwitch, dispatch])
-
-    console.log("THE CART ENTRY:       ", cartEntry)
-
+    
     return cartEntry && (
         <div>
             <label htmlFor={cartEntry.cartItem.name}>{cartEntry.cartItem.name}</label>

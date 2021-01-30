@@ -11,8 +11,6 @@ const CartForm = ({cartItems, setCartToggle}) => {
         if(cartItems) setCartLoaded(true);
     }, [cartItems])
 
-    console.log("THE CART ITEMS:    ", cartItems)
-
     return cartLoaded && (
         <form>
             {cartItems.map(item => <CartItem key={item.id} cartEntry={item} formToggle={setFormLoad} cartToggler={setCartToggle} />)}

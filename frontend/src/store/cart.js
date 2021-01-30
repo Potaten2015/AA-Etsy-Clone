@@ -107,7 +107,6 @@ const cartReducer = (state = initialState, action) => {
         case REMOVE:
             newState = state;
             itemId = action.payload;
-            console.log('DELETING ITEM WITH ID:     ', itemId)
             delete newState[itemId];
             return newState;
         case PLUS:
