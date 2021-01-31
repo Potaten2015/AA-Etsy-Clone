@@ -3,12 +3,27 @@
 }
 
 .item-card {
-  width: 200px;
+  width: 98%;
+  height: 98%;
   margin: 0;
   padding: 0;
+  border: 1px grey solid;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-thumbnail {
-  height: 300px;
-  width: auto;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.product-thumbnail-buy {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
 }
