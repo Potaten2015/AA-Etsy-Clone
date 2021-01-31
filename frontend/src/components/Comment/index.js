@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import {updateCurrentProfile} from '../../store/browse'
-import CommentForm from '../Browse/CommentForm';
+import {populateBrowse, updateCurrentProfile} from '../../store/browse'
+import { removeComment } from '../../store/comment';
+import CommentForm from '../CommentForm';
 
-const Comment = ({title, content, author, rating}) => {
+const Comment = ({title, content, author, rating, commentId}) => {
 
     const dispatch = useDispatch();
     const [commentLoaded, setCommentLoaded] = useState(false);
@@ -20,7 +21,6 @@ const Comment = ({title, content, author, rating}) => {
 
     return (
                 <>
-                    <CommentForm />
                     {!beingEdited && (
                         <>
                             <div>
@@ -32,7 +32,11 @@ const Comment = ({title, content, author, rating}) => {
                                 {(sessionUser.id === author.id) && (
                                     <>
                                         <button onClick={e => setBeingEdited(true)}>Edit</button>
-                                        <button>Delete</button>
+                                        <button onClick={e => {
+                                            e.preventDefault()
+                                            dispatch(removeComment(commentId))
+                                            dispatch(populateBrowse(sessionUser))
+                                        }}>Delete</button>
                                     </>
                                 )}
                             </div>
@@ -41,7 +45,7 @@ const Comment = ({title, content, author, rating}) => {
 
                     {beingEdited && (
                     <>
-                        <CommentForm />
+                        <CommentForm oldContent={content} oldTitle={title} oldRating={rating}/>
                         <button onClick={e => setBeingEdited(false)}>Cancel</button>
                     </>
                     )}

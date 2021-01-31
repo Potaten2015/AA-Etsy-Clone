@@ -1,68 +1,65 @@
 import { fetch } from './csrf';
 
-const DELETE = 'comment/delete'
+const REMOVE = 'comment/remove'
 const EDIT = 'comment/edit'
 const POST = 'comment/create'
 
 
-const deleteComment = (itemData) => {
+const remove = (itemData) => {
     return {
-        type: POPULATE,
-        payload: itemData
+        type: REMOVE
     }
 }
 
-const editComment = (comment) => {
+const edit = (info) => {
     return {
-        type: CURRENT,
-        payload: comment
+        type: EDIT
     }
 }
 
-export const createComment = (user) => async (dispatch) => {
-    const response = await fetch('/api/comment/', {
-        method: 'post',
-        body: JSON.stringify(user),
+const post = (info) => {
+    return {
+        type: POST
+    }
+}
+
+export const removeComment = (commentId) => async (dispatch) => {
+    console.log(commentId)
+    await fetch('/api/comment/', {
+        method: 'delete',
+        body: JSON.stringify({
+            commentId
+        }),
     })
-    dispatch(populate(response.data))
+    dispatch(remove())
 }
 
-export const updateCurrentItem = (item) => async (dispatch) => {
-    dispatch(current(item))
+
+
+export const createComment = ({userId, itemId, rating, title, content}) => async (dispatch) => {
+    await fetch('/api/comment/', {
+        method: 'post',
+        body: JSON.stringify({
+            userId,
+            itemId,
+            content,
+            rating,
+            title
+        }),
+    })
+    dispatch(post())
 }
 
-export const updateCurrentPhoto = (url) => async (dispatch) => {
-    dispatch(photo(url))
-}
-
-export const updateCurrentProfile = (info) => async (dispatch) => {
-    dispatch(profile(info))
-}
-
-const initialState = {favoriteItems: [], newlyAddedItems: [], browseItems:[], recentlyVisitedItems: [], currentItem: null, currentPhoto: null, currentProfile: null};
+const initialState = {};
 
 const browseReducer = (state = initialState, action) => {
-    let newState;
     switch (action.type) {
-        case POPULATE:
-            newState = action.payload;
-            if(!newState){
-                return null
-            } else {
-                return newState;
-            }
-        case CURRENT:
-            newState = state;
-            newState.currentItem = action.payload;
-            return newState;
-        case PHOTO:
-            newState = state;
-            newState.currentPhoto = action.payload;
-            return newState;
-        case PROFILE:
-            newState = state;
-            newState.currentProfile = action.payload;
-            return newState;
+        case REMOVE:
+            break;
+        case EDIT:
+            break;
+        case POST:
+            break;
         default:
             return state;
     }

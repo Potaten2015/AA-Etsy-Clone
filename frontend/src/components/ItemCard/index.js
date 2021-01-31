@@ -14,17 +14,17 @@ const ItemCard = ({item}) => {
     }
 
     return (
-        <>
+        <div className="item-card">
             <NavLink to={`/item/${item.id}`} className='ItemCard-Link' onClick={e => update()}>
                 <div>
                     <p>{item.name}</p>
                     <p>{item.shortDescription}</p>
                     <p>{`$${item.price}`}</p>
-                    <img src={item.thumbnail} alt={item.name} />
+                    <img className='product-thumbnail' src={item.thumbnail} alt={item.name} />
                 </div>
             </NavLink>
             <button onClick={e => dispatch(addItem(item))}>Add to Cart</button>
-        </>
+        </div>
     )
 }
 

@@ -5,74 +5,26 @@ const {Op} = require('sequelize');
 
 const db = require('../../db/models/');
 
-router.post('/populate', asyncHandler(async (req, res) => {
-
-    const userId = req.body.id;
-
-    // const recentlyVisited = await Item.findAll({
-    //     where: {
-    //         id: {
-    //             [Op.in]: []
-    //         }
-    //     }
-    // })
-
-    const recentlyVisited = [];
-
-    const favorites = await db.Favorite.findAll({
-        where: {
-            userId: userId
-        },
-    }).then((returned) => returned.map(fav => fav.itemId));
-
-    const favoriteItems = await db.Item.findAll({
-        where: {
-            id: {
-                [Op.in]: favorites
-            }
-        },
-        include: {
-            model: db.Comment,
-            include: [{
-                model: db.User
-            }]
-        }
-    })
-
-    const newlyAddedItems = await db.Item.findAll({
-        order: [
-            ['createdAt', 'DESC']
-        ],
-        include: {
-            model: db.Comment,
-            include: [{
-                model: db.User
-            }]
-        },
-        limit: 5
-    })
-
-    const alreadyLoaded = [...favoriteItems.map(item => item.id), ...newlyAddedItems.map(item => item.id)];
-
-    const browseItems = await db.Item.findAll({
-        include: {
-            model: db.Comment,
-            include: [{
-                model: db.User
-            }]
-        }
-    });
-
-
-
-    return res.json({favoriteItems, newlyAddedItems, browseItems, recentlyVisited})
-
-}))
-
 router.post('/buy', asyncHandler( async (req, res) => {
 
-    const myModel = await db.Order.build({})
-    console.log(myModel)
+    const {userId, items} = req.body;
+
+    const myModel = await db.Order.create({userId});
+
+    items.forEach(async el => {
+        for(let i = 0; i < el.quantity; i++) {
+            console.log(el.cartItem.id)
+
+            await db.OrderItem.create(
+                {
+                    itemId: el.cartItem.id,
+                    orderId: myModel.dataValues.id
+                }
+            )
+        }
+    })
+
+    return res.json({ message: 'success' });
 
 }))
 

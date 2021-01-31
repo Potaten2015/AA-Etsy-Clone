@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import CartItem from "./CartItem";
 import {buyItem,  emptyItem} from '../../store/cart.js'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CartForm = ({cartItems, setCartToggle}) => {
 
     const [cartLoaded, setCartLoaded] = useState(false);
     const [formLoad, setFormLoad] = useState(false);
     const dispatch = useDispatch();
+    const userId = useSelector(state => state.session.user.id)
 
     useEffect(() => {
         if(cartItems) setCartLoaded(true);
@@ -18,7 +19,7 @@ const CartForm = ({cartItems, setCartToggle}) => {
             {cartItems.map(item => <CartItem key={item.id} cartEntry={item} formToggle={setFormLoad} cartToggler={setCartToggle} />)}
             <button onClick={e => {
                 e.preventDefault();
-                dispatch(buyItem())}}>Buy</button>
+                dispatch(buyItem(cartItems, userId))}}>Buy</button>
             <button onClick={e =>{
                 e.preventDefault()
                 dispatch(emptyItem());

@@ -1,23 +1,29 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { populateBrowse } from '../../store/browse';
+import { createComment } from '../../store/comment';
 import './CommentForm.css'
 
-const CommentForm = ({oldComment, oldRating, oldTitle}) => {
+const CommentForm = ({oldContent, oldRating, oldTitle}) => {
 
+    const dispatch = useDispatch()
     const [formLoaded, setFormLoaded] = useState(false);
     const item = useSelector(state => state.browse.currentItem);
     const itemName = item.name;
+    const itemId = useSelector(state => state.browse.currentItem.id);
+    const user = useSelector(state => state.session.user)
+    const userId = user.id;
 
-    const [comment, setComment] = useState('');
-    if(oldComment) setComment(oldComment);
+    const [content, setContent] = useState('');
+    if(oldContent) setContent(oldContent);
     const [rating, setRating] = useState(5);
-    if(oldRating) setRating(oldComment);
+    if(oldRating) setRating(oldRating);
     const [title, setTitle] = useState('');
     if(oldTitle) setTitle(oldTitle);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-    },[])
+    // },[])
 
     return (
         <form className='CommentForm-form'>
@@ -33,19 +39,19 @@ const CommentForm = ({oldComment, oldRating, oldTitle}) => {
                     <tr>
                         <td>Title:</td>
                         <td>
-                            <input />
+                            <input value={title} onChange={e => setTitle(e.target.value)}/>
                         </td>
                     </tr>
                     <tr>
                         <td>Comment:</td>
                         <td>
-                            <textarea />
+                            <textarea value={content} onChange={e => setContent(e.target.value)}/>
                         </td>
                     </tr>
                     <tr>
                         <td>Rating:</td>
                         <td>
-                            <input type='number' min='1' max='5' name='rating' value={rating} defaultValue='5'/>
+                            <input type='number' min='1' max='5' name='rating' value={rating}/>
                             <button onClick={e => {
                                 e.preventDefault();
                                 if(rating < 5) setRating(prev => prev + 1);
@@ -57,13 +63,20 @@ const CommentForm = ({oldComment, oldRating, oldTitle}) => {
                         </td>
                     </tr>
                 </tbody>
-
             </table>
-            <button>Submit</button>
+            <button onClick={e => {
+                e.preventDefault()
+                dispatch(createComment({userId, content, rating, title, itemId}))
+                dispatch(populateBrowse(user))
+                setRating(5)
+                setContent('')
+                setTitle('');
+            }
+                }>Submit</button>
             <button onClick={ e => {
                 e.preventDefault()
                 setRating(5)
-                setComment('')
+                setContent('')
                 setTitle('');
             }
             }>Clear</button>

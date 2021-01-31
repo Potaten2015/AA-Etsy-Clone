@@ -6,6 +6,7 @@ import {useEffect} from 'react';
 import { updateCurrentItem, updateCurrentPhoto } from '../../store/browse';
 import Comment from '../Comment';
 import {addItem} from '../../store/cart'
+import CommentForm from '../CommentForm'
 
 
 const ProductPage = ({url}) => {
@@ -35,7 +36,8 @@ const ProductPage = ({url}) => {
             <button onClick={e => dispatch(addItem(item))}>Add to Cart</button>
             <p>{item.longDescription}</p>
             {item.photos.map((image, index) => <ProductPageSmall key={image} url={image} index={index} />)}
-            {item.Comments && item.Comments.map(com => <Comment key={com.id} title={com.title} content={com.content} author={com.User} rating={com.rating}/>)}
+            <CommentForm />
+            {item.Comments && item.Comments.map(com => <Comment commentId = {com.id} key={com.id} title={com.title} content={com.content} author={com.User} rating={com.rating}/>)}
         </>
     )
 }

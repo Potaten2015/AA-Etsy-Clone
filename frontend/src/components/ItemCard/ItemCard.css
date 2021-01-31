@@ -1,3 +1,14 @@
 .ItemCard-Link {
   text-decoration: none;
 }
+
+.item-card {
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+.product-thumbnail {
+  height: 300px;
+  width: auto;
+}

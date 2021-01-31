@@ -64,9 +64,11 @@ export const minusItem = (itemId) => async (dispatch) => {
     dispatch(minus(itemId));
 }
 
-export const buyItem = () => async (dispatch) => {
-    fetch('/api/cart/buy', {
-        method: 'post'
+export const buyItem = (cartItems, userId) => async (dispatch) => {
+
+    await fetch('/api/cart/buy', {
+        method: 'post',
+        body: JSON.stringify({'items': cartItems, 'userId': userId})
     })
     dispatch(buy());
 }
