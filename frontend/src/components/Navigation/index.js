@@ -12,27 +12,27 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
-        <ProfileButton user={sessionUser} />
-        <NavLink to='/browse'>Browse</NavLink>
-        <NavLink to='/cart'>Cart</NavLink>
+        <NavLink className='navlinks' to='/browse'>Browse</NavLink>
+        <NavLink className='navlinks' to='/cart'>Cart</NavLink>
+        <ProfileButton className='navlinks' user={sessionUser} />
       </>
     );
   } else {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink className='navlinks' to="/signup">Sign Up</NavLink>
       </>
     );
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <div className='navbar'>
+      <div className='navbar-list'>
+          <NavLink className='navlinks' exact to="/">Home</NavLink>
+          {isLoaded && sessionLinks}
+      </div>
+    </div>
   );
 }
 

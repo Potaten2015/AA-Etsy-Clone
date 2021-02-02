@@ -4,6 +4,7 @@ const POPULATE = 'browse/populate'
 const CURRENT = 'browse/current'
 const PHOTO = 'browse/current/photo'
 const PROFILE = 'browse/profile'
+const RECENT = 'browse/recent'
 
 
 const populate = (itemData) => {
@@ -34,6 +35,13 @@ const profile = (info) => {
     }
 }
 
+const recent = (item) => {
+    return {
+        type: RECENT,
+        payload: item
+    }
+}
+
 export const populateBrowse = (user) => async (dispatch) => {
     const response = await fetch('/api/browse/populate', {
         method: 'post',
@@ -54,7 +62,11 @@ export const updateCurrentProfile = (info) => async (dispatch) => {
     dispatch(profile(info))
 }
 
-const initialState = {favoriteItems: [], newlyAddedItems: [], browseItems:[], recentlyVisitedItems: [], currentItem: null, currentPhoto: null, currentProfile: null};
+export const updateRecentItems = (item) => async (dispatch) => {
+    dispatch(recent(item))
+}
+
+const initialState = {favoriteItems: [], newlyAddedItems: [], browseItems:[], recentlyVisitedItems: [], currentItem: null, currentPhoto: null, currentProfile: null, categories: null};
 
 const browseReducer = (state = initialState, action) => {
     let newState;
@@ -77,6 +89,10 @@ const browseReducer = (state = initialState, action) => {
         case PROFILE:
             newState = state;
             newState.currentProfile = action.payload;
+            return newState;
+        case RECENT:
+            newState = state;
+            newState.recentlyVisitedItems.push(action.payload)
             return newState;
         default:
             return state;

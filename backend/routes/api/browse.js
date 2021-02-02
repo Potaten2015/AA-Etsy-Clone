@@ -63,9 +63,9 @@ router.post('/populate', asyncHandler(async (req, res) => {
         }
     });
 
+    const categories = await db.Category.findAll();
 
-
-    return res.json({favoriteItems, newlyAddedItems, browseItems, recentlyVisited})
+    return res.json({favoriteItems, newlyAddedItems, browseItems, recentlyVisited, categories})
 
 }))
 

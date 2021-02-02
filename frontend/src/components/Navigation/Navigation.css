@@ -1,0 +1,16 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px blue solid;
+}
+
+.navbar-list {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navlinks {
+  padding: 5px;
+}

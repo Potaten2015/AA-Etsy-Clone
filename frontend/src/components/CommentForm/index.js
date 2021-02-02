@@ -39,19 +39,19 @@ const CommentForm = ({oldContent, oldRating, oldTitle}) => {
                     <tr>
                         <td>Title:</td>
                         <td>
-                            <input value={title} onChange={e => setTitle(e.target.value)}/>
+                            <input defaultValue={title} onChange={e => setTitle(e.target.value)}/>
                         </td>
                     </tr>
                     <tr>
                         <td>Comment:</td>
                         <td>
-                            <textarea value={content} onChange={e => setContent(e.target.value)}/>
+                            <textarea defaultValue={content} onChange={e => setContent(e.target.value)}/>
                         </td>
                     </tr>
                     <tr>
                         <td>Rating:</td>
                         <td>
-                            <input type='number' min='1' max='5' name='rating' value={rating}/>
+                            <input type='number' min='1' max='5' name='rating' defaultValue={rating}/>
                             <button onClick={e => {
                                 e.preventDefault();
                                 if(rating < 5) setRating(prev => prev + 1);

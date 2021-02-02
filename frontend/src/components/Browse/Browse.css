@@ -2,9 +2,9 @@
   display: grid;
   width: 90%;
   margin-left: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  grid-template-columns: 33% 33% 33%;
 }
 
 .browse-page {
@@ -12,11 +12,20 @@
   width: 100%;
 }
 
-/* .browse-grid {
+.search-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.section-header {
+  text-align: center;
+}
+
+.browse-grid {
   display: grid;
-  width: 80%;
-  margin-left: 10%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-} */
+  grid-template-columns: 50% 16.5% 16.5% 16.5%;
+  height: 100%;
+}
