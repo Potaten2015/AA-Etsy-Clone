@@ -9,3 +9,27 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.cart-item-label {
+  font-size: 5vh;
+}
+
+.cart-item-quantity {
+  font-size: 5vh;
+  border-radius: 10px;
+  width: 10%;
+}
+
+.cart-item-buttons {
+  font-size: 5vh;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.cart-item-image {
+  width: 10vw;
+  height: 10vw;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+}

@@ -26,6 +26,17 @@
 
 .browse-grid {
   display: grid;
-  grid-template-columns: 50% 16.5% 16.5% 16.5%;
+  grid-template-columns: 33% 33% 33%;
   height: 100%;
+}
+
+.product-page-image {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.outer-product-row {
 }

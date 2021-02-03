@@ -36,10 +36,9 @@
 .product-thumbnail-buy {
   display: flex;
   justify-content: space-around;
-  width: 60%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: black;
   border-radius: 10px;
-  color: cornflowerblue;
+  color: white;
   padding: 3px;
   margin: 3px;
 }
@@ -55,9 +54,9 @@
 }
 
 .product-info {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: black;
   border-radius: 10px;
-  color: cornflowerblue;
+  color: white;
   width: auto;
   text-align: center;
   border-radius: 10px;

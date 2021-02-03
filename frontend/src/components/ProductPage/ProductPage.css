@@ -1,0 +1,15 @@
+.product-page-content {
+  display: grid;
+  grid-template-columns: 40% 25% auto;
+  height: 90%;
+  overflow: hidden;
+}
+
+.product-page-small-images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  border: 1px black dashed;
+  height: min-content;
+}

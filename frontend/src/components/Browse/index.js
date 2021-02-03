@@ -34,15 +34,12 @@ function Browse({isLoaded}) {
     useEffect(() => {
     if(browseLoaded && !categoryCheck) {
         const catNames = {}
-        console.log(categories)
         Array.from(categories).forEach(cat => catNames[cat.name] = false);
         setCategoryCheck(catNames)
     }
-    console.log(categoryCheck)
     }, [browseLoaded]);
 
-    const {favoriteItems, browseItems, newlyAddedItems, recentlyVisitedItems} = browseData;
-    console.log(recentlyVisitedItems)
+    const {favoriteItems, browseItems, newlyAddedItems, recentlyVisited} = browseData;
 
     return isLoaded && browseLoaded && (
         <div className='main-page'>
@@ -50,7 +47,7 @@ function Browse({isLoaded}) {
                     <form>
                         <input onFocus={e => setSearching(true)} onBlur={e => {
                             if(e.target.value.length == 0) setSearching(false);
-                        }} placeholder='Search' value={searchInput} onChange={e => setSearchInput(e.target.value)}></input>
+                        }} placeholder='S E A R C H' value={searchInput} onChange={e => setSearchInput(e.target.value)}></input>
                         {/* {Array.from(categories).map(cat =>
                             (<>
                                 <input type='checkbox' key={cat.id} checked={categoryCheck[cat.name]} name={cat.name} value={cat.name} onChange={e => {
@@ -71,7 +68,7 @@ function Browse({isLoaded}) {
                             // setCategoryCheck(state => {
                                 //     Object.keys(state).forEach(thing => state[thing] = false)
                                 // })
-                            }}>Clear Search</button>
+                            }}>C L E A R  S E A R C H</button>
                     </form>
                     {searching && <p>Filter By Category</p>}
                 </div>
@@ -80,23 +77,25 @@ function Browse({isLoaded}) {
                     {!searching && (
                         <>
                         <div className='outer-product-row'>
-                            <h2 className='section-header'>Browse</h2>
+                            <h2 className='section-header'>E V E R Y T H I N G</h2>
                             <div className='products-browse product-row'>
                                 {browseItems.map((item) => <ItemCard key={item.id} item={item} />)}
                             </div>
                         </div>
                         <div className='outer-product-row'>
-                            <h2 className='section-header'>Recently Visited</h2>
-                            {/* {recentlyVisitedItems.map((item) => <ItemCard key={item.id} item={item} />)} */}
-                        </div>
-                        <div className='outer-product-row'>
-                            <h2 className='section-header'>Newly Added</h2>
+                            <h2 className='section-header'>F R E S H  U P</h2>
                             <div className='products-new product-row'>
                                 {newlyAddedItems.map((item) => <ItemCard key={item.id} item={item} />)}
                             </div>
                         </div>
                         <div className='outer-product-row'>
-                            <h2 className='section-header'>Favorites</h2>
+                            <h2 className='section-header'>B E E N  T H E R E</h2>
+                            <div className='product-row'>
+                                {recentlyVisited.map((item) => <ItemCard key={item.id} item={item} />)}
+                            </div>
+                        </div>
+                        <div className='outer-product-row'>
+                            <h2 className='section-header'>Y O U R  F A V S</h2>
                             <div className='products-favorites product-row'>
                                 {favoriteItems.map((item) => <ItemCard key={item.id} item={item} />)}
                             </div>
@@ -106,11 +105,9 @@ function Browse({isLoaded}) {
                 </div>
             </div>)}
             {searching && (
-                <>
                 <div className='product-row'>
                     {results.map((item) => <ItemCard key={item.id} item={item} />)}
                 </div>
-                </>
                 )}
         </div>
     )

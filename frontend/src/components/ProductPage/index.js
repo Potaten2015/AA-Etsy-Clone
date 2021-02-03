@@ -7,6 +7,7 @@ import { updateCurrentItem, updateCurrentPhoto } from '../../store/browse';
 import Comment from '../Comment';
 import {addItem} from '../../store/cart'
 import CommentForm from '../CommentForm'
+import './ProductPage.css'
 
 
 const ProductPage = ({url}) => {
@@ -31,11 +32,17 @@ const ProductPage = ({url}) => {
 
     return (
         <>
-            <h2>{item.name}</h2>
-            <ProductPageImage url={photoUrl} />
-            <button onClick={e => dispatch(addItem(item))}>Add to Cart</button>
-            <p>{item.longDescription}</p>
-            {item.photos.map((image, index) => <ProductPageSmall key={image} url={image} index={index} />)}
+            <div className='product-page-content'>
+                <ProductPageImage url={photoUrl} />
+                <div className='product-page-small-images'>
+                    {item.photos.map((image, index) => <ProductPageSmall key={image} url={image} index={index} />)}
+                </div>
+                <div>
+                    <h2>{item.name}</h2>
+                    <p>{item.longDescription}</p>
+                    <button onClick={e => dispatch(addItem(item))}>Add to Cart</button>
+                </div>
+            </div>
             <CommentForm />
             {item.Comments && item.Comments.map(com => <Comment commentId = {com.id} key={com.id} title={com.title} content={com.content} author={com.User} rating={com.rating}/>)}
         </>

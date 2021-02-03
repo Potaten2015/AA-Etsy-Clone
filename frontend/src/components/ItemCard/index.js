@@ -13,8 +13,6 @@ const ItemCard = ({item}) => {
         await dispatch(updateCurrentPhoto(item.photos[0]))
     }
 
-    console.log(item.photos[0])
-
     return (
         <div className='item-card-container'>
             <NavLink to={`/item/${item.id}`} className='ItemCard-Link' onClick={e => {
@@ -29,7 +27,7 @@ const ItemCard = ({item}) => {
                     <div className='product-thumbnail-buy-holder'>
                         <div className='product-thumbnail-buy hide'>
                             <p>{`$${item.price.toFixed(2)}`}</p>
-                            <button onClick={e => dispatch(addItem(item))}>Add to Cart</button>
+                            {/* <button onClick={e => dispatch(addItem(item))}>Add to Cart</button> */}
                         </div>
                     </div>
                 </div>

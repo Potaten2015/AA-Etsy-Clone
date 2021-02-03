@@ -6,7 +6,7 @@ const ProductPageImage = ({url}) => {
     const item = useSelector(state => state.browse.currentItem);
 
     return (
-        <img src={url} />
+        <img className='product-page-image' src={url}/>
     )
 }
 

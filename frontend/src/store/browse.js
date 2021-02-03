@@ -66,13 +66,14 @@ export const updateRecentItems = (item) => async (dispatch) => {
     dispatch(recent(item))
 }
 
-const initialState = {favoriteItems: [], newlyAddedItems: [], browseItems:[], recentlyVisitedItems: [], currentItem: null, currentPhoto: null, currentProfile: null, categories: null};
+const initialState = {};
 
 const browseReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case POPULATE:
             newState = action.payload;
+            newState.recentlyVisited = state.recentlyVisited;
             if(!newState){
                 return null
             } else {
@@ -92,7 +93,7 @@ const browseReducer = (state = initialState, action) => {
             return newState;
         case RECENT:
             newState = state;
-            newState.recentlyVisitedItems.push(action.payload)
+            if(!newState.recentlyVisited.includes(action.payload)) newState.recentlyVisited = [...state.recentlyVisited, action.payload];
             return newState;
         default:
             return state;

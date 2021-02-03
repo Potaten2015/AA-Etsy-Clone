@@ -16,7 +16,9 @@ const CartForm = ({cartItems, setCartToggle}) => {
 
     return cartLoaded && (
         <form>
-            {cartItems.map(item => <CartItem key={item.id} cartEntry={item} formToggle={setFormLoad} cartToggler={setCartToggle} />)}
+            <table>
+                {cartItems.map(item => <CartItem key={item.id} cartEntry={item} formToggle={setFormLoad} cartToggler={setCartToggle} />)}
+            </table>
             <button onClick={e => {
                 e.preventDefault();
                 dispatch(buyItem(cartItems, userId))}}>Buy</button>

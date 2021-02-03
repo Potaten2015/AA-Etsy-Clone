@@ -49,7 +49,7 @@ router.post('/populate', asyncHandler(async (req, res) => {
                 model: db.User
             }]
         },
-        limit: 5
+        limit: 6
     })
 
     const alreadyLoaded = [...favoriteItems.map(item => item.id), ...newlyAddedItems.map(item => item.id)];
@@ -65,7 +65,7 @@ router.post('/populate', asyncHandler(async (req, res) => {
 
     const categories = await db.Category.findAll();
 
-    return res.json({favoriteItems, newlyAddedItems, browseItems, recentlyVisited, categories})
+    return res.json({favoriteItems, newlyAddedItems, browseItems, categories})
 
 }))
 
