@@ -20,6 +20,10 @@
   margin: 10px;
 }
 
+.search-input {
+  font-size: 1em;
+}
+
 .section-header {
   text-align: center;
 }
@@ -39,4 +43,29 @@
 }
 
 .outer-product-row {
+}
+
+.clear-search-button {
+  background-color: black;
+  color: white;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  margin-left: 10px;
+  transform: all 2s;
+}
+
+.clear-search-button:hover {
+  background-color: white;
+  color: black;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  transform: all 1s;
+}
+
+*:focus {
+  outline: none;
 }

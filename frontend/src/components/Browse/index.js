@@ -45,7 +45,7 @@ function Browse({isLoaded}) {
         <div className='main-page'>
                 <div className='search-area'>
                     <form>
-                        <input onFocus={e => setSearching(true)} onBlur={e => {
+                        <input className='search-input' onFocus={e => setSearching(true)} onBlur={e => {
                             if(e.target.value.length == 0) setSearching(false);
                         }} placeholder='S E A R C H' value={searchInput} onChange={e => setSearchInput(e.target.value)}></input>
                         {/* {Array.from(categories).map(cat =>
@@ -62,7 +62,7 @@ function Browse({isLoaded}) {
                                 {console.log(cat.name)}
                                 </>)
                             )} */}
-                        <button onClick={e => {
+                        <button className='clear-search-button' onClick={e => {
                             e.preventDefault()
                             setSearchInput('')
                             // setCategoryCheck(state => {
@@ -70,7 +70,7 @@ function Browse({isLoaded}) {
                                 // })
                             }}>C L E A R • S E A R C H</button>
                     </form>
-                    {searching && <p>Filter By Category</p>}
+                    {/* {searching && <p>Filter By Category</p>} */}
                 </div>
             {!searching && (<div className='browse-page'>
                 <div className='browse-grid'>
@@ -95,7 +95,7 @@ function Browse({isLoaded}) {
                             </div>
                         </div>
                         <div className='outer-product-row'>
-                            <h2 className='section-header'>Y O U R • F A V S</h2>
+                            <h2 className='section-header'>M Y • F A V S</h2>
                             <div className='products-favorites product-row'>
                                 {favoriteItems.map((item) => <ItemCard key={item.id} item={item} />)}
                             </div>

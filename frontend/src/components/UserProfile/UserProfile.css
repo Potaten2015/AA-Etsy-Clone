@@ -1,0 +1,31 @@
+.profile-selling-container {
+  display: flex;
+  width: 100%;
+}
+
+.profile-item-card {
+  height: 300px;
+  width: auto;
+}
+
+.profile-header-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-header-username {
+  height: min-content;
+  width: auto;
+}
+
+.profile-follow-button {
+  background-color: black;
+  color: white;
+  width: max-content;
+  height: min-content;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 1em;
+  margin-left: 10px;
+}

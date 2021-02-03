@@ -1,17 +1,19 @@
 import {useSelector, useDispatch} from 'react-redux';
 import ProductPageSmall from '../ProductPageSmall';
-import {useParams} from 'react-router-dom';
+import {NavLink, useHistory, useParams} from 'react-router-dom';
 import {useEffect} from 'react';
 import { updateCurrentItem, updateCurrentPhoto } from '../../store/browse';
 import Comment from '../Comment';
 import {addItem} from '../../store/cart'
 import CommentForm from '../CommentForm'
 import './ProductPage.css'
+import {updateCurrentProfile} from '../../store/browse'
 
 
 const ProductPage = ({url}) => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const itemId = parseInt((useParams().id), 10);
 
@@ -40,15 +42,27 @@ const ProductPage = ({url}) => {
                         </div>
                     </div>
                     <div className='product-page-right-half'>
-                        <div className='product-page-item-info'>
-                            <h2>{item.name}</h2>
-                            <p>{item.longDescription}</p>
-                            <button className='product-page-add-button' onClick={e => dispatch(addItem(item))}>Add to Cart</button>
+                        <div className='product-page-right-organizer'>
+                            <div className='product-page-item-info'>
+                                <div className='product-page-item-header'>
+                                    <h2 className='product-page-item-name'>{item.name}</h2>
+                                    <p className='product-page-item-price'>${item.price.toFixed(2)}</p>
+                                </div>
+                                <p className='product-page-item-description'>{item.longDescription}</p>
+                                <div className='product-page-button-container'>
+                                    <button className='product-page-button' onClick={e => dispatch(addItem(item))}>A D D • T O • C A R T</button>
+                                    <button className='product-page-button' onClick={e => {
+                                        dispatch(updateCurrentProfile(item.User))
+                                        history.push(`/profile/${item.User.id}`)
+                                    }}>V I S I T • S E L L E R • P A G E</button>
+                                    <button className='product-page-button' onClick={e => dispatch(addItem(item))}>F A V O R I T E</button>
+                                </div>
+                            </div>
                         </div>
-                        <CommentForm />
-                        {item.Comments && item.Comments.map(com => <Comment commentId = {com.id} key={com.id} title={com.title} content={com.content} author={com.User} rating={com.rating}/>)}
                     </div>
                 </div>
+                <CommentForm />
+                {item.Comments && item.Comments.map(com => <Comment commentId = {com.id} key={com.id} title={com.title} content={com.content} author={com.User} rating={com.rating}/>)}
             </div>
         </>
     )

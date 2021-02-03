@@ -100,11 +100,13 @@
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+
 .item-card:hover,
 .item-card:focus,
 .item-card:active {
   color: white;
 }
+
 .item-card:hover:before,
 .item-card:focus:before,
 .item-card:active:before {

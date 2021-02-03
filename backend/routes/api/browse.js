@@ -36,6 +36,9 @@ router.post('/populate', asyncHandler(async (req, res) => {
             include: [{
                 model: db.User
             }]
+        },
+        include: {
+            model: db.User
         }
     })
 
@@ -49,7 +52,10 @@ router.post('/populate', asyncHandler(async (req, res) => {
                 model: db.User
             }]
         },
-        limit: 6
+        include: {
+            model: db.User
+        },
+        limit: 6,
     })
 
     const alreadyLoaded = [...favoriteItems.map(item => item.id), ...newlyAddedItems.map(item => item.id)];
@@ -60,6 +66,9 @@ router.post('/populate', asyncHandler(async (req, res) => {
             include: [{
                 model: db.User
             }]
+        },
+        include: {
+            model: db.User
         }
     });
 
