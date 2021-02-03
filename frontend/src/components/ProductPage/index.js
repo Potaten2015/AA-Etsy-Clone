@@ -33,14 +33,14 @@ const ProductPage = ({url}) => {
     return (
         <>
             <div className='product-page-content'>
-                <ProductPageImage url={photoUrl} />
                 <div className='product-page-small-images'>
                     {item.photos.map((image, index) => <ProductPageSmall key={image} url={image} index={index} />)}
                 </div>
-                <div>
+                <ProductPageImage url={photoUrl} />
+                <div className='product-page-item-info'>
                     <h2>{item.name}</h2>
                     <p>{item.longDescription}</p>
-                    <button onClick={e => dispatch(addItem(item))}>Add to Cart</button>
+                    <button className='product-page-add-button' onClick={e => dispatch(addItem(item))}>Add to Cart</button>
                 </div>
             </div>
             <CommentForm />

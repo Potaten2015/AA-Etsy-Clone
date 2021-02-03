@@ -1,15 +1,21 @@
 .product-page-content {
   display: grid;
-  grid-template-columns: 40% 25% auto;
+  grid-template-columns: auto 40% auto;
   height: 90%;
   overflow: hidden;
+  margin: 5px;
 }
 
 .product-page-small-images {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.product-page-item-info {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  border: 1px black dashed;
-  height: min-content;
+  flex-direction: column;
+}
+
+.product-page-add-button {
+  width: 10%;
 }

@@ -76,26 +76,26 @@ function Browse({isLoaded}) {
                 <div className='browse-grid'>
                     {!searching && (
                         <>
-                        <div className='outer-product-row'>
+                        {/* <div className='outer-product-row'>
                             <h2 className='section-header'>E V E R Y T H I N G</h2>
                             <div className='products-browse product-row'>
                                 {browseItems.map((item) => <ItemCard key={item.id} item={item} />)}
                             </div>
-                        </div>
+                        </div> */}
                         <div className='outer-product-row'>
-                            <h2 className='section-header'>F R E S H  U P</h2>
+                            <h2 className='section-header'>F R E S H • U P</h2>
                             <div className='products-new product-row'>
                                 {newlyAddedItems.map((item) => <ItemCard key={item.id} item={item} />)}
                             </div>
                         </div>
                         <div className='outer-product-row'>
-                            <h2 className='section-header'>B E E N  T H E R E</h2>
+                            <h2 className='section-header'>B E E N • T H E R E</h2>
                             <div className='product-row'>
                                 {recentlyVisited.map((item) => <ItemCard key={item.id} item={item} />)}
                             </div>
                         </div>
                         <div className='outer-product-row'>
-                            <h2 className='section-header'>Y O U R  F A V S</h2>
+                            <h2 className='section-header'>Y O U R • F A V S</h2>
                             <div className='products-favorites product-row'>
                                 {favoriteItems.map((item) => <ItemCard key={item.id} item={item} />)}
                             </div>
