@@ -1,5 +1,4 @@
 import {useSelector, useDispatch} from 'react-redux';
-import ProductPageImage from '../ProductPageImage';
 import ProductPageSmall from '../ProductPageSmall';
 import {useParams} from 'react-router-dom';
 import {useEffect} from 'react';
@@ -33,18 +32,24 @@ const ProductPage = ({url}) => {
     return (
         <>
             <div className='product-page-content'>
-                <div className='product-page-small-images'>
-                    {item.photos.map((image, index) => <ProductPageSmall key={image} url={image} index={index} />)}
-                </div>
-                <ProductPageImage url={photoUrl} />
-                <div className='product-page-item-info'>
-                    <h2>{item.name}</h2>
-                    <p>{item.longDescription}</p>
-                    <button className='product-page-add-button' onClick={e => dispatch(addItem(item))}>Add to Cart</button>
+                <div className='product-page-flex'>
+                    <div className='product-page-left-half'>
+                        <img className='product-page-image' src={photoUrl}/>
+                        <div className='product-page-small-images'>
+                            {item.photos.map((image, index) => <ProductPageSmall key={image} url={image} index={index} />)}
+                        </div>
+                    </div>
+                    <div className='product-page-right-half'>
+                        <div className='product-page-item-info'>
+                            <h2>{item.name}</h2>
+                            <p>{item.longDescription}</p>
+                            <button className='product-page-add-button' onClick={e => dispatch(addItem(item))}>Add to Cart</button>
+                        </div>
+                        <CommentForm />
+                        {item.Comments && item.Comments.map(com => <Comment commentId = {com.id} key={com.id} title={com.title} content={com.content} author={com.User} rating={com.rating}/>)}
+                    </div>
                 </div>
             </div>
-            <CommentForm />
-            {item.Comments && item.Comments.map(com => <Comment commentId = {com.id} key={com.id} title={com.title} content={com.content} author={com.User} rating={com.rating}/>)}
         </>
     )
 }

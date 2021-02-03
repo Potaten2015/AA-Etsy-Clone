@@ -27,7 +27,6 @@ const ItemCard = ({item}) => {
                     <div className='product-thumbnail-buy-holder'>
                         <div className='product-thumbnail-buy hide'>
                             <p>{`$${item.price.toFixed(2)}`}</p>
-                            {/* <button onClick={e => dispatch(addItem(item))}>Add to Cart</button> */}
                         </div>
                     </div>
                 </div>

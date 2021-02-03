@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
 import { updateCurrentPhoto } from "../../store/browse";
-import './ProductPageSmall.css'
+import '../ProductPage/ProductPage.css'
 
 
 const ProductPageSmall = ({url, index}) => {
@@ -15,9 +15,7 @@ const ProductPageSmall = ({url, index}) => {
     }
 
     return (
-        <NavLink to={`/item/${item.id}/`} onClick={e => photoUpdate(e)}>
-            <img src={url} className='small-images' />
-        </NavLink>
+        <img onClick={e => photoUpdate(e)} src={url} className='small-images' />
     )
 }
 

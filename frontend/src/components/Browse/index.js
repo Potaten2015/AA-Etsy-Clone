@@ -68,7 +68,7 @@ function Browse({isLoaded}) {
                             // setCategoryCheck(state => {
                                 //     Object.keys(state).forEach(thing => state[thing] = false)
                                 // })
-                            }}>C L E A R  S E A R C H</button>
+                            }}>C L E A R • S E A R C H</button>
                     </form>
                     {searching && <p>Filter By Category</p>}
                 </div>
