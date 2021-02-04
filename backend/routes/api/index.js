@@ -23,6 +23,8 @@ router.use('/cart', cartRouter);
 
 router.use('/comment', commentRouter);
 
+router.use('/favorite', favoriteRouter);
+
 router.use('/follow', followRouter);
 
 router.get('/set-token-cookie', asyncHandler(async(req, res) => {

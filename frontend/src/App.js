@@ -26,7 +26,7 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route path="/browse">
+          <Route path="/home">
             <Browse isLoaded={isLoaded}/>
           </Route>
 
@@ -40,6 +40,10 @@ function App() {
 
           <Route path="/cart">
             <Cart isLoaded={isLoaded}/>
+          </Route>
+
+          <Route path="/">
+          <Browse isLoaded={isLoaded}/>
           </Route>
 
         </Switch>

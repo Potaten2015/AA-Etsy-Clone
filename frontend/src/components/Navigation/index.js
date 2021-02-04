@@ -28,7 +28,7 @@ function Navigation({ isLoaded }){
   return (
     <div className='navbar'>
       <div className='navbar-list'>
-          <NavLink className='navlinks' to="/browse">H O M E</NavLink>
+          <NavLink className='navlinks' to="/home">H O M E</NavLink>
           {isLoaded && sessionLinks}
       </div>
     </div>
