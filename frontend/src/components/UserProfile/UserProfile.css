@@ -23,9 +23,20 @@
   background-color: black;
   color: white;
   width: max-content;
-  height: min-content;
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
   font-size: 1em;
-  margin-left: 10px;
+  margin-right: 10px;
+  transform: all 2s;
+}
+
+.profile-follow-button:hover {
+  background-color: white;
+  color: black;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  margin-right: 10px;
+  transform: all 1s;
 }

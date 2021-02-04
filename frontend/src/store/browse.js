@@ -7,6 +7,8 @@ const PROFILE = 'browse/profile'
 const RECENT = 'browse/recent'
 const FAV = 'browse/fav'
 const UNFAV = 'browse/unfav'
+const FOLLOW = 'browse/follow'
+const UNFOLLOW = 'browse/unfollow'
 
 
 const populate = (itemData) => {
@@ -58,6 +60,20 @@ const unfav = (data) => {
     }
 }
 
+const follow = (following) => {
+    return {
+        type: FOLLOW,
+        payload: following
+    }
+}
+
+const unfollow = (following) => {
+    return {
+        type: UNFOLLOW,
+        payload: following
+    }
+}
+
 export const populateBrowse = (user) => async (dispatch) => {
     const response = await fetch('/api/browse/populate', {
         method: 'post',
@@ -106,6 +122,30 @@ export const unfavoriteItem = (item, userId) => async (dispatch) => {
     dispatch(unfav(data))
 }
 
+export const followUser = (followingUserId, followedUserId) => async (dispatch) => {
+    const res = await fetch('/api/follow',{
+        method: 'post',
+        body: JSON.stringify({
+            followingUserId,
+            followedUserId
+        })
+    })
+    const {data} = res;
+    dispatch(follow(data))
+}
+
+export const unfollowUser = (followingUserId, followedUserId) => async (dispatch) => {
+    const res = await fetch('/api/follow',{
+        method: 'delete',
+        body: JSON.stringify({
+            followingUserId,
+            followedUserId
+        })
+    })
+    const {data} = res;
+    dispatch(unfollow(data))
+}
+
 const initialState = {};
 
 const browseReducer = (state = initialState, action) => {
@@ -113,7 +153,11 @@ const browseReducer = (state = initialState, action) => {
     switch (action.type) {
         case POPULATE:
             newState = action.payload;
-            newState.recentlyVisited = state.recentlyVisited;
+            if(state.recentlyVisited){
+                newState.recentlyVisited = state.recentlyVisited;
+            } else {
+                newState.recentlyVisited = [];
+            }
             if(!newState){
                 return null
             } else {
@@ -133,7 +177,17 @@ const browseReducer = (state = initialState, action) => {
             return newState;
         case RECENT:
             newState = state;
-            if(!newState.recentlyVisited.includes(action.payload)) newState.recentlyVisited = [...state.recentlyVisited, action.payload];
+            let found;
+            if(!newState.recentlyVisited){
+                newState.recentlyVisited = []
+                return newState
+            } else {
+                found = newState.recentlyVisited.find(item => item.id === action.payload.id)
+            }
+
+            if(!found) {
+                newState.recentlyVisited = [...state.recentlyVisited, action.payload]
+            }
             return newState;
         case FAV:
             newState = state;
@@ -144,6 +198,14 @@ const browseReducer = (state = initialState, action) => {
             newState = state;
             newState.favoriteItems = action.payload.favoriteItems;
             newState.favorites = action.payload.favorites;
+            return newState;
+        case FOLLOW:
+            newState = state;
+            newState.follows = action.payload.follows;
+            return newState;
+        case UNFOLLOW:
+            newState = state;
+            newState.follows = action.payload.follows;
             return newState;
         default:
             return state;

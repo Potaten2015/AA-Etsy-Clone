@@ -64,7 +64,13 @@ router.post('/populate', asyncHandler(async (req, res) => {
 
     const categories = await db.Category.findAll();
 
-    return res.json({favoriteItems, newlyAddedItems, browseItems, categories, favorites})
+    const follows = await db.Follow.findAll({
+        where: {
+            followingUserId: userId
+        },
+    }).then((returned) => returned.map(pair => pair.followedUserId));
+
+    return res.json({favoriteItems, newlyAddedItems, browseItems, categories, favorites, follows})
 
 }))
 
