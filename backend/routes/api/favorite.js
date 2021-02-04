@@ -5,9 +5,16 @@ const {Op} = require('sequelize');
 
 const db = require('../../db/models/');
 
-router.post('/populate', asyncHandler(async (req, res) => {
+router.delete('/', asyncHandler(async (req, res) => {
 
-    const userId = req.body.id;
+    const {item, userId} = req.body;
+
+    await db.Favorite.destroy({
+        where: {
+            itemId: item.id,
+            userId: userId
+        }
+    });
 
     const favorites = await db.Favorite.findAll({
         where: {
@@ -32,25 +39,31 @@ router.post('/populate', asyncHandler(async (req, res) => {
         }
     })
 
-    const newlyAddedItems = await db.Item.findAll({
-        order: [
-            ['createdAt', 'DESC']
-        ],
-        include: {
-            model: db.Comment,
-            include: [{
-                model: db.User
-            }]
-        },
-        include: {
-            model: db.User
-        },
-        limit: 6,
-    })
+    return res.json({favoriteItems, favorites})
 
-    const alreadyLoaded = [...favoriteItems.map(item => item.id), ...newlyAddedItems.map(item => item.id)];
+}))
 
-    const browseItems = await db.Item.findAll({
+router.post('/', asyncHandler(async (req, res) => {
+
+    const {item, userId} = req.body;
+
+    await db.Favorite.create({
+            itemId: item.id,
+            userId: userId
+    });
+
+    const favorites = await db.Favorite.findAll({
+        where: {
+            userId: userId
+        },
+    }).then((returned) => returned.map(fav => fav.itemId));
+
+    const favoriteItems = await db.Item.findAll({
+        where: {
+            id: {
+                [Op.in]: favorites
+            }
+        },
         include: {
             model: db.Comment,
             include: [{
@@ -60,11 +73,9 @@ router.post('/populate', asyncHandler(async (req, res) => {
         include: {
             model: db.User
         }
-    });
+    })
 
-    const categories = await db.Category.findAll();
-
-    return res.json({favoriteItems, newlyAddedItems, browseItems, categories, favorites})
+    return res.json({favoriteItems, favorites})
 
 }))
 

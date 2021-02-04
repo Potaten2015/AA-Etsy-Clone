@@ -24,7 +24,6 @@ const post = (info) => {
 }
 
 export const removeComment = (commentId) => async (dispatch) => {
-    console.log(commentId)
     await fetch('/api/comment/', {
         method: 'delete',
         body: JSON.stringify({

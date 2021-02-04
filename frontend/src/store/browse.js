@@ -5,6 +5,8 @@ const CURRENT = 'browse/current'
 const PHOTO = 'browse/current/photo'
 const PROFILE = 'browse/profile'
 const RECENT = 'browse/recent'
+const FAV = 'browse/fav'
+const UNFAV = 'browse/unfav'
 
 
 const populate = (itemData) => {
@@ -42,6 +44,20 @@ const recent = (item) => {
     }
 }
 
+const fav = (data) => {
+    return {
+        type: FAV,
+        payload: data
+    }
+}
+
+const unfav = (data) => {
+    return {
+        type: UNFAV,
+        payload: data
+    }
+}
+
 export const populateBrowse = (user) => async (dispatch) => {
     const response = await fetch('/api/browse/populate', {
         method: 'post',
@@ -64,6 +80,30 @@ export const updateCurrentProfile = (info) => async (dispatch) => {
 
 export const updateRecentItems = (item) => async (dispatch) => {
     dispatch(recent(item))
+}
+
+export const favoriteItem = (item, userId) => async (dispatch) => {
+    const res = await fetch('/api/favorite',{
+        method: 'post',
+        body: JSON.stringify({
+            item,
+            userId
+        })
+    })
+    const {data} = res;
+    dispatch(fav(data))
+}
+
+export const unfavoriteItem = (item, userId) => async (dispatch) => {
+    const res = await fetch('/api/favorite',{
+        method: 'delete',
+        body: JSON.stringify({
+            item,
+            userId
+        })
+    })
+    const {data} = res;
+    dispatch(unfav(data))
 }
 
 const initialState = {};
@@ -94,6 +134,16 @@ const browseReducer = (state = initialState, action) => {
         case RECENT:
             newState = state;
             if(!newState.recentlyVisited.includes(action.payload)) newState.recentlyVisited = [...state.recentlyVisited, action.payload];
+            return newState;
+        case FAV:
+            newState = state;
+            newState.favoriteItems = action.payload.favoriteItems;
+            newState.favorites = action.payload.favorites;
+            return newState;
+        case UNFAV:
+            newState = state;
+            newState.favoriteItems = action.payload.favoriteItems;
+            newState.favorites = action.payload.favorites;
             return newState;
         default:
             return state;

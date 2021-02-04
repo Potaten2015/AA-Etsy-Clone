@@ -28,7 +28,7 @@ const CommentForm = ({oldContent, oldRating, oldTitle}) => {
     return (
         <form className='CommentForm-form'>
             <table>
-                <thead colspan='2'>
+                <thead colSpan='2'>
                     <tr>
                         <th>
                             <h3>Tell us about {itemName}:</h3>

@@ -85,19 +85,19 @@ function Browse({isLoaded}) {
                         <div className='outer-product-row'>
                             <h2 className='section-header'>F R E S H • U P</h2>
                             <div className='products-new product-row'>
-                                {newlyAddedItems.map((item) => <ItemCard key={item.id} item={item} />)}
+                                {newlyAddedItems.map((item, index) => <ItemCard key={index} item={item} />)}
                             </div>
                         </div>
                         <div className='outer-product-row'>
                             <h2 className='section-header'>B E E N • T H E R E</h2>
                             <div className='product-row'>
-                                {recentlyVisited.map((item) => <ItemCard key={item.id} item={item} />)}
+                                {recentlyVisited.map((item, index) => <ItemCard key={index} item={item} />)}
                             </div>
                         </div>
                         <div className='outer-product-row'>
                             <h2 className='section-header'>M Y • F A V S</h2>
                             <div className='products-favorites product-row'>
-                                {favoriteItems.map((item) => <ItemCard key={item.id} item={item} />)}
+                                {favoriteItems.map((item, index) => <ItemCard key={index} item={item} />)}
                             </div>
                         </div>
                     </>
@@ -106,7 +106,7 @@ function Browse({isLoaded}) {
             </div>)}
             {searching && (
                 <div className='product-row'>
-                    {results.map((item) => <ItemCard key={item.id} item={item} />)}
+                    {results.map((item, index) => <ItemCard key={index} item={item} />)}
                 </div>
                 )}
         </div>
