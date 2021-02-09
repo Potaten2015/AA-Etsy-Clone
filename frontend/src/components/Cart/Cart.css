@@ -11,7 +11,7 @@ input[type="number"] {
 }
 
 .cart-item-label {
-  font-size: 5vh;
+  font-size: 2vh;
 }
 
 .cart-item-quantity {
@@ -27,11 +27,12 @@ input[type="number"] {
 }
 
 .cart-item-image {
-  width: 10vw;
-  height: 10vw;
+  width: 4vh;
+  height: 4vh;
   background-position: center;
   background-size: cover;
   border-radius: 10px;
+  margin: 3px;
 }
 
 .cart-item-data {
@@ -47,4 +48,74 @@ input[type="number"] {
 
 .cart-item-row {
   display: flex;
+  justify-content: space-around;
+  border: 1px black solid;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.cart-item-buttons {
+  background-color: black;
+  color: white;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  margin-left: 10px;
+  transform: all 2s;
+}
+
+.cart-item-buttons:hover {
+  background-color: white;
+  color: black;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  transform: all 1s;
+}
+
+.cart-form-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  margin: 20px;
+}
+
+.cart-main-buttons {
+  background-color: black;
+  color: white;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  margin-left: 10px;
+  transform: all 2s;
+}
+
+.cart-main-buttons:hover {
+  background-color: white;
+  color: black;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  transform: all 1s;
+}
+
+.cart-main-button-holder {
+  display: flex;
+  justify-content: center;
+}
+
+.whole-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-total {
+  font-size: 3vh;
 }

@@ -16,18 +16,22 @@ const CartForm = ({cartItems, setCartToggle}) => {
 
     return cartLoaded && (
         <>
-            <form className='cart-form'>
-                <table>
-                    {cartItems.map(item => <CartItem key={item.id} cartEntry={item} formToggle={setFormLoad} cartToggler={setCartToggle} />)}
-                </table>
-            </form>
-                <button onClick={e => {
-                    e.preventDefault();
-                    dispatch(buyItem(cartItems, userId))}}>Buy</button>
-                <button onClick={e =>{
-                    e.preventDefault()
-                    dispatch(emptyItem());
-                }}>Empty</button>
+            <div className='cart-form-holder'>
+                <div className='cart-main-button-holder'>
+                    <button className='cart-main-buttons' onClick={e => {
+                        e.preventDefault();
+                        dispatch(buyItem(cartItems, userId))}}>B U Y</button>
+                    <button className='cart-main-buttons' onClick={e =>{
+                        e.preventDefault()
+                        dispatch(emptyItem());
+                    }}>E M P T Y</button>
+                </div>
+                <form className='cart-form'>
+                    <table>
+                        {cartItems.map(item => <CartItem key={item.id} cartEntry={item} formToggle={setFormLoad} cartToggler={setCartToggle} />)}
+                    </table>
+                </form>
+            </div>
         </>
     )
 }

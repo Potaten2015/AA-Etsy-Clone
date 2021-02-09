@@ -28,8 +28,10 @@ const Cart = () => {
 
     return cartLoaded && (
         <>
-            <CartForm cartItems={cartData} setCartToggle={setCartToggle}/>
-            <p>{`Cart Total: $${(cartTotal).toFixed(2)}`}</p>
+            <div className='whole-cart'>
+                <p className='cart-total'>{`C A R T • T O T A L : $${(cartTotal).toFixed(2)}`}</p>
+                <CartForm cartItems={cartData} setCartToggle={setCartToggle}/>
+            </div>
         </>
     )
 }

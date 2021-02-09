@@ -26,7 +26,7 @@ const ItemCard = ({item}) => {
                     </div>
                     <div className='product-thumbnail-buy-holder'>
                         <div className='product-thumbnail-buy hide'>
-                            <p>{`$${item.price.toFixed(2)}`}</p>
+                            <p className='product-thumbnail-price'>{`$${item.price.toFixed(2)}`}</p>
                         </div>
                     </div>
                 </div>

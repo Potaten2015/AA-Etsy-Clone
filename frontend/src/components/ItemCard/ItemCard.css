@@ -53,10 +53,10 @@
 }
 
 .product-info {
-  background-color: black;
+  /* background-color: black; */
   border-radius: 10px;
   color: white;
-  width: auto;
+  width: 100%;
   text-align: center;
   border-radius: 10px;
   padding: 3px;
@@ -88,7 +88,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
   -webkit-transform-origin: 50% 100%;
@@ -112,4 +112,8 @@
 .item-card:active:before {
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
+}
+
+.product-thumbnail-price {
+  margin-left: 4px;
 }

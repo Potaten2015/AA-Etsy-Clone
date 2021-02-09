@@ -30,9 +30,9 @@ const UserProfile = () => {
             {relatedItems.length > 0 &&
             (
                 <>
-                    <h3>{`${userProfile.username.split('').join(' ').toUpperCase()} • I S • C U R R E N T L Y • S E L L I N G:`}</h3>
+                    <h3>{`${userProfile.username.split('').join(' ').toUpperCase()} • I S • C U R R E N T L Y • S E L L I N G`}</h3>
                     <div className='profile-selling-container'>
-                        {relatedItems.map(item => <ItemCard className='profile-item-card' item={item} />)}
+                        {relatedItems ? (relatedItems.map(item => <ItemCard className='profile-item-card' item={item} />)) : <h3>N O T H I N G</h3>}
                     </div>
                 </>
             )}
