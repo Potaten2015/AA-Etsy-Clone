@@ -91,7 +91,10 @@ function Browse({isLoaded}) {
                             </div>
                         </div>
                         <div className='outer-product-row'>
-                            <h2 className='section-header'>B E E N • T H E R E</h2>
+                            <div>
+                                <h2 className='section-header'>B E E N • T H E R E</h2>
+                                <button className="clear-recent-button">C L E A R</button>
+                            </div>
                             <div className='product-row'>
                                 {recentlyVisited.map((item, index) => <ItemCard key={index} item={item} />)}
                             </div>

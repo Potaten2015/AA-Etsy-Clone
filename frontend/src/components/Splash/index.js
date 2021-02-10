@@ -11,10 +11,12 @@ function Splash() {
     const history = useHistory();
     const dispatch = useDispatch();
     const {splashItems} = useSelector(state => state.splash);
-    const splashItemsShort = splashItems.slice(0, 12)
+    let splashItemsShort;
 
-    useEffect(() => {
-        dispatch(populateSplash())
+    useEffect(async () => {
+        await dispatch(populateSplash()).then(() => {
+            if(splashItems) splashItemsShort = splashItems.slice(0,12)
+        })
     }, [])
 
     const demoLogin = e => {
