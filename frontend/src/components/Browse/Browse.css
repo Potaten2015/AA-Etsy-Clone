@@ -22,6 +22,9 @@
 
 .search-input {
   font-size: 1em;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .section-header {

@@ -9,6 +9,8 @@ import ProductPage from "./components/ProductPage";
 import UserProfile from "./components/UserProfile";
 import Cart from "./components/Cart";
 import Splash from "./components/Splash"
+import Footer from "./components/Footer";
+import LoginFormModal from "./components/LoginFormModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,8 +19,8 @@ function App() {
   const user = useSelector(state => state.session.user)
 
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    if(user) setSignedIn(true)
+    if(!isLoaded) dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    if(user) setSignedIn(true);
   }, [dispatch, user]);
 
   return (
@@ -29,6 +31,18 @@ function App() {
         <>
             {isLoaded && (
               <Switch>
+
+                {/* <Route path="/demo">
+                  <Demo />
+                </Route> */}
+
+                <Route path="/login">
+                  <LoginFormModal />
+                </Route>
+
+                <Route path="/signup">
+                  <SignupFormPage />
+                </Route>
 
                 <Route path="/">
                   <Splash />
@@ -42,36 +56,37 @@ function App() {
       {signedIn &&
       (
         <>
-          <Navigation isLoaded={isLoaded} />
+          <Navigation isLoaded={isLoaded} setSignedIn={setSignedIn}/>
             {isLoaded && (
               <Switch>
 
                 <Route path="/signup">
-                  <SignupFormPage />
+                  <SignupFormPage setSignedIn={setSignedIn}/>
                 </Route>
 
                 <Route path="/home">
-                  <Browse isLoaded={isLoaded}/>
+                  <Browse isLoaded={isLoaded} setSignedIn={setSignedIn}/>
                 </Route>
 
                 <Route path="/item/:id">
-                  <ProductPage isLoaded={isLoaded}/>
+                  <ProductPage isLoaded={isLoaded} setSignedIn={setSignedIn}/>
                 </Route>
 
                 <Route path="/profile/:id">
-                  <UserProfile isLoaded={isLoaded}/>
+                  <UserProfile isLoaded={isLoaded} setSignedIn={setSignedIn}/>
                 </Route>
 
                 <Route path="/cart">
-                  <Cart isLoaded={isLoaded}/>
+                  <Cart isLoaded={isLoaded} setSignedIn={setSignedIn}/>
                 </Route>
 
                 <Route path="/">
-                <Browse isLoaded={isLoaded}/>
+                <Browse isLoaded={isLoaded} setSignedIn={setSignedIn}/>
                 </Route>
 
               </Switch>
         )}
+        <Footer />
       </>
       )}
     </>

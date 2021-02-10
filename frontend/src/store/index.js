@@ -7,11 +7,13 @@ import createEngine from 'redux-storage-engine-localstorage';
 import sessionReducer from './session';
 import cartReducer from "./cart";
 import browseReducer from "./browse";
+import splashReducer from "./splash";
 
 const rootReducer = {
   session: sessionReducer,
   browse: browseReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  splash: splashReducer
 };
 
 const finalReducer = storage.reducer(combineReducers(rootReducer));
