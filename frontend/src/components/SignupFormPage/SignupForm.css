@@ -1,0 +1,54 @@
+.signup-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.signup-form {
+  color: white;
+  background-color: transparent;
+}
+
+.signup-form-table {
+  color: white;
+  background-color: transparent;
+}
+
+.signup-form-table-header {
+  padding: 20px;
+}
+
+.signup-form-field {
+  width: 20vw;
+}
+
+.signup-form-bio {
+  width: 20vw;
+  min-height: 6vw;
+}
+
+.signup-submit-button {
+  background-color: black;
+  color: white;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  margin-right: 10px;
+  transform: all 2s;
+  border-color: none;
+}
+
+.signup-submit-button:hover {
+  background-color: white;
+  color: black;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  margin-right: 10px;
+  transform: all 1s;
+}

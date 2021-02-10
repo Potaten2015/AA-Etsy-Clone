@@ -24,6 +24,11 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
+    check('bio')
+    .exists({ checkFalsy: true})
+    .withMessage('Please provide a bio.')
+    .isLength({ max: 1000})
+    .withMessage('Current maximum bio length is 1000 characters.'),
     handleValidationErrors,
 ];
 
@@ -32,8 +37,8 @@ router.post(
     '',
     validateSignup,
     asyncHandler(async(req, res) => {
-        const { email, password, username } = req.body;
-        const user = await User.signup({ email, username, password });
+        const { email, password, username, bio } = req.body;
+        const user = await User.signup({ email, username, password, bio });
 
         await setTokenCookie(res, user);
 
