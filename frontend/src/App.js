@@ -37,11 +37,12 @@ function App() {
                 </Route> */}
 
                 <Route path="/login">
-                  <Navigation isLoaded={isLoaded} signedIn={signedIn}/>
+                  <Navigation />
                   <LoginFormModal setSignedIn={setSignedIn} signedIn={signedIn}/>
                 </Route>
 
                 <Route path="/signup">
+                  <Navigation />
                   <SignupFormPage setSignedIn={setSignedIn} signedIn={signedIn}/>
                 </Route>
 

@@ -23,6 +23,7 @@
 
 .signup-form-field {
   width: 20vw;
+  border-radius: 2px;
 }
 
 .signup-form-bio {
