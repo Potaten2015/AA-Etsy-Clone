@@ -38,6 +38,7 @@ router.post(
     validateSignup,
     asyncHandler(async(req, res) => {
         const { email, password, username, bio } = req.body;
+        console.log(bio)
         const user = await User.signup({ email, username, password, bio });
 
         await setTokenCookie(res, user);

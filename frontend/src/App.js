@@ -43,7 +43,7 @@ function App() {
 
                 <Route path="/signup">
                   <Navigation />
-                  <SignupFormPage setSignedIn={setSignedIn} signedIn={signedIn}/>
+                  <SignupFormPage setSignedIn={setSignedIn}/>
                 </Route>
 
                 <Route path="/">
@@ -61,10 +61,6 @@ function App() {
           <Navigation isLoaded={isLoaded} setSignedIn={setSignedIn}/>
             {isLoaded && (
               <Switch>
-
-                <Route path="/home">
-                  <Browse isLoaded={isLoaded} setSignedIn={setSignedIn}/>
-                </Route>
 
                 <Route path="/item/:id">
                   <ProductPage isLoaded={isLoaded} setSignedIn={setSignedIn}/>

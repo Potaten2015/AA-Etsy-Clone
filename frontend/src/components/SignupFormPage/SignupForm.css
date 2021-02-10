@@ -53,3 +53,8 @@
   margin-right: 10px;
   transform: all 1s;
 }
+
+.signup-submit-container {
+  display: flex;
+  justify-content: center;
+}

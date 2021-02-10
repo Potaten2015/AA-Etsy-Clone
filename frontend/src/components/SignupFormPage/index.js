@@ -6,7 +6,7 @@ import validator from 'validator';
 
 import './SignupForm.css';
 
-function SignupFormPage() {
+function SignupFormPage({setSignedIn}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -23,6 +23,8 @@ function SignupFormPage() {
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, username, password, bio }))
+        .then(res => {
+          if(!res.data.errors) setSignedIn(true)})
         .catch(res => {
           if (res.data && res.data.errors) setErrors(res.data.errors);
         });
@@ -105,10 +107,8 @@ function SignupFormPage() {
                 <textarea className="signup-form-field signup-form-bio" placeholder="Tell us a little about yourself. If you sell an item, this bio will be available to other users." value={bio} onChange={e => setBio(e.target.value)}></textarea>
               </td>
             </tr>
-            <tr>
-              <td>
-                <button className="signup-submit-button" type="submit">S U B M I T</button>
-              </td>
+            <tr className="signup-submit-container">
+                <button colSpan="2" className="signup-submit-button" type="submit" >S U B M I T</button>
             </tr>
           </tbody>
 
