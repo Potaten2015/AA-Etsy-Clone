@@ -28,10 +28,9 @@ function Browse({isLoaded}) {
     }) : allItems
 
     useEffect(() => {
-        if(user){
-            dispatch(populateBrowse(user)).then(setBrowseLoaded(true));
-        }
-      }, [dispatch, user]);
+        if(user && !browseLoaded) dispatch(populateBrowse(user));
+        if(browseData) setBrowseLoaded(true);
+    }, [dispatch, user, browseData]);
 
     useEffect(() => {
     if(browseLoaded && !categoryCheck) {
