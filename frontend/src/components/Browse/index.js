@@ -40,7 +40,7 @@ function Browse({isLoaded}) {
     }
     }, [browseLoaded]);
 
-    const {favoriteItems, browseItems, newlyAddedItems, recentlyVisited} = browseData;
+    const {favoriteItems, newlyAddedItems, recentlyVisited} = browseData;
 
     return isLoaded && browseLoaded && (
         <div className='main-page'>
@@ -90,10 +90,7 @@ function Browse({isLoaded}) {
                             </div>
                         </div>
                         <div className='outer-product-row'>
-                            <div>
-                                <h2 className='section-header'>B E E N • T H E R E</h2>
-                                <button className="clear-recent-button">C L E A R</button>
-                            </div>
+                            <h2 className='section-header'>B E E N • T H E R E</h2>
                             <div className='product-row'>
                                 {recentlyVisited.map((item, index) => <ItemCard key={index} item={item} />)}
                             </div>

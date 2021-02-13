@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import {useHistory} from 'react-router-dom';
 import './Navigation.css'
+import { clearRecentItems, populateBrowse } from "../../store/browse";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -32,6 +33,10 @@ function ProfileButton({ user }) {
     history.push('/')
   };
 
+  const clearRecent = () => {
+    dispatch(clearRecentItems()).then(() => dispatch(populateBrowse(user)))
+  }
+
   return (
     <div className="profile-menu-container">
       <button className="profile-outer-button underlined" onClick={openMenu}>
@@ -41,6 +46,9 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li>Username: {user.username}</li>
           <li>Email: {user.email}</li>
+          <li className="clear-recent-button" onClick={e => clearRecent()} >
+          Clear Recent Items
+          </li>
         </ul>
       )}
     </div>

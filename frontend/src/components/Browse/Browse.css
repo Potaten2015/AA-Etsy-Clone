@@ -73,14 +73,11 @@
   outline: none;
 }
 
-.clear-recent-button {
-  background-color: black;
-  color: white;
-  width: max-content;
-  padding: 10px;
-  margin: 0px;
-  border-radius: 10px;
-  font-size: 1em;
-  margin-left: 10px;
-  transform: all 2s;
+
+
+.been-there-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

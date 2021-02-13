@@ -9,6 +9,7 @@ const FAV = 'browse/fav'
 const UNFAV = 'browse/unfav'
 const FOLLOW = 'browse/follow'
 const UNFOLLOW = 'browse/unfollow'
+const CLEAR_RECENT = 'browse/recent/clear'
 
 
 const populate = (itemData) => {
@@ -43,6 +44,12 @@ const recent = (item) => {
     return {
         type: RECENT,
         payload: item
+    }
+}
+
+const clearRecent = () => {
+    return {
+        type: CLEAR_RECENT
     }
 }
 
@@ -96,6 +103,10 @@ export const updateCurrentProfile = (info) => async (dispatch) => {
 
 export const updateRecentItems = (item) => async (dispatch) => {
     dispatch(recent(item))
+}
+
+export const clearRecentItems = () => async (dispatch) => {
+    dispatch(clearRecent())
 }
 
 export const favoriteItem = (item, userId) => async (dispatch) => {
@@ -206,6 +217,10 @@ const browseReducer = (state = initialState, action) => {
         case UNFOLLOW:
             newState = state;
             newState.follows = action.payload.follows;
+            return newState;
+        case CLEAR_RECENT:
+            newState = state;
+            newState.recentlyVisited = [];
             return newState;
         default:
             return state;
