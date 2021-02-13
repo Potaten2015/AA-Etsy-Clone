@@ -146,7 +146,7 @@ export const unfollowUser = (followingUserId, followedUserId) => async (dispatch
     dispatch(unfollow(data))
 }
 
-const initialState = {};
+const initialState = {favoriteItems: [], newlyAddedItems: [], browseItems: [], categories: [], favorites: [], follows: [], recentlyVisited: []};
 
 const browseReducer = (state = initialState, action) => {
     let newState;
