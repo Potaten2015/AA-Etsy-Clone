@@ -10,7 +10,7 @@ import UserProfile from "./components/UserProfile";
 import Cart from "./components/Cart";
 import Splash from "./components/Splash"
 import Footer from "./components/Footer";
-import LoginFormModal from "./components/LoginFormModal";
+import LoginFormPage from "./components/LoginFormPage"
 
 function App() {
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ function App() {
 
                 <Route path="/login">
                   <Navigation />
-                  <LoginFormModal setSignedIn={setSignedIn} signedIn={signedIn}/>
+                  <LoginFormPage setSignedIn={setSignedIn} signedIn={signedIn}/>
                 </Route>
 
                 <Route path="/signup">
