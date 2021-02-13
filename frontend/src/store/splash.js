@@ -15,7 +15,7 @@ export const populateSplash = () => async (dispatch) => {
     dispatch(populate(response.data))
 }
 
-const initialState = {};
+const initialState = {splashItems: []};
 
 const splashReducer = (state = initialState, action) => {
     let newState;
