@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
+import SignupFormPage from "./components/EntryPage/SignupForm";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Browse from "./components/Browse"
@@ -10,7 +10,8 @@ import UserProfile from "./components/UserProfile";
 import Cart from "./components/Cart";
 import Splash from "./components/Splash"
 import Footer from "./components/Footer";
-import LoginFormPage from "./components/LoginFormPage"
+import LoginFormPage from "./components/EntryPage/LoginForm"
+import EntryPage from "./components/EntryPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,14 +37,9 @@ function App() {
                   <Demo />
                 </Route> */}
 
-                <Route path="/login">
+                <Route path="/entry/:type">
                   <Navigation />
-                  <LoginFormPage setSignedIn={setSignedIn} signedIn={signedIn}/>
-                </Route>
-
-                <Route path="/signup">
-                  <Navigation />
-                  <SignupFormPage setSignedIn={setSignedIn}/>
+                  <EntryPage setSignedIn={setSignedIn} signedIn={signedIn}/>
                 </Route>
 
                 <Route path="/">

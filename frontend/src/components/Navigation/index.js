@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import * as sessionActions from '../../store/session';
 
@@ -31,7 +30,6 @@ function Navigation({ isLoaded, setSignedIn }){
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
         <NavLink className='navlinks' to="/signup">S I G N • I N</NavLink>
       </>
     );

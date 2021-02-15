@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import * as sessionActions from "../../store/session";
+import * as sessionActions from "../../../store/session";
 import validator from 'validator';
 
-import './LoginFormPage.css';
+import '../EntryPage.css';
 
-function LoginFormPage({setSignedIn}) {
+function LoginForm({setSignedIn}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -26,13 +26,11 @@ function LoginFormPage({setSignedIn}) {
   }
 
   return (
-    <div className="login-page">
-      <div className = "inner-login-page">
-        <form className="login-form" onSubmit={handleSubmit}>
-          <table className="login-form-table">
+        <form className="entry-form" onSubmit={handleSubmit}>
+          <table className="entry-form-table">
             <thead>
               <tr>
-                <th colSpan="2" className="login-form-table-header">
+                <th className="entry-form-table-header">
                   L O G I N
                   <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -44,7 +42,7 @@ function LoginFormPage({setSignedIn}) {
               <tr>
                 <td>
                 <input
-                  className="login-form-field"
+                  className="entry-form-field"
                   type="text"
                   value={credential}
                   onChange={(e) => setCredential(e.target.value)}
@@ -56,25 +54,20 @@ function LoginFormPage({setSignedIn}) {
                 <td>
                   <input
                     placeholder="P A S S W O R D"
-                    className="login-form-field"
+                    className="entry-form-field"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required/>
                 </td>
               </tr>
-              <tr className="login-submit-container">
-                  <button colSpan="2" className="login-submit-button" type="submit" >S U B M I T</button>
+              <tr className="entry-submit-container">
+                  <button colSpan="2" className="entry-submit-button" type="submit" >S U B M I T</button>
               </tr>
             </tbody>
           </table>
         </form>
-        <div className="mission-statement">
-          {"With the ability to view seller bios, follow those that you connect with, and view new items from those sellers on your dashboard, there arises the opportunity to buy from sellers you trust, and put money into people you support. Welcome back :)".split(' ').join('  ').toUpperCase()}
-        </div>
-      </div>
-    </div>
   );
 }
 
-export default LoginFormPage;
+export default LoginForm;

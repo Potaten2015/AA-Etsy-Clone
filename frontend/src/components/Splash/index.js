@@ -31,9 +31,9 @@ function Splash() {
                 <p>WHO ARE YOU BUYING FROM?</p>
             </div>
             <div className="splash-lower-container">
-                <button onClick={e => history.push('/login')} className="splash-button">L O G • I N</button>
-                <button onClick={e => demoLogin(e)} className="splash-button">D E M O</button>
-                <button onClick={e => history.push('/signup')} className="splash-button">S I G N • U P</button>
+                <button onClick={e => history.push('/entry/1')} className="splash-button">L O G • I N</button>
+                <button onClick={e => history.push('/entry/3')} className="splash-button">D E M O</button>
+                <button onClick={e => history.push('/entry/2')} className="splash-button">S I G N • U P</button>
             </div>
             <div className='splash-grid'>
                 {splashItems.map( item => <ItemCardSplash item={item} />)}
